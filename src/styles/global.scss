@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./variables";
+@import "./mixins";
+
+:root {
+    --bg-primary: #020617;
+    --bg-secondary: #080d1a;
+    --surface-card: rgba(15, 23, 42, 0.45);
+    --border-color: rgba(255, 255, 255, 0.06);
+    --accent-violet: #818cf8;
+    --accent-violet-hover: #6366f1;
+    --accent-violet-light: rgba(129, 140, 248, 0.08);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-green: #34d399;
+    --accent-green-light: rgba(52, 211, 153, 0.1);
+    --accent-red: #fb7185;
+    --accent-red-light: rgba(251, 113, 133, 0.1);
+    --accent-amber: #f59e0b;
+    --accent-amber-light: rgba(245, 158, 11, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: $font-family;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+
+}
+
+html {
+    font-size: 62.5%;
+}
