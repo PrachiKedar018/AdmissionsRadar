@@ -23,6 +23,7 @@ export class ApplyPage {
   private router = inject(Router);
   isLoading = signal(false);
   result = signal<EligibilityResponse | null>(null);
+  errorMessage = signal<string | null>(null);
 
   private defaultSubjects = [
     { name: 'Mathematics', marks: '' },
@@ -132,11 +133,9 @@ export class ApplyPage {
         next: (res) => {
           this.result.set(res);
           this.isLoading.set(false);
-          alert("Application added successfully!");
-          this.resetForm();
         },
         error: (err) => {
-          alert("Submission failed!");
+          this.errorMessage.set(err.message || 'Submission failed!');
           this.isLoading.set(false);
         }
       })

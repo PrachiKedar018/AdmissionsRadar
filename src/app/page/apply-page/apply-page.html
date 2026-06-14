@@ -25,3 +25,83 @@
             </div>
             </div>
             </div>
+</div>
+
+@if (result(); as res) {
+  <div class="result-modal-backdrop animate-fade-in">
+    <div class="result-modal-card">
+      <div class="modal-header d-flex align-items-center justify-content-between mb-3">
+        <h3 class="modal-title m-0">Evaluation Summary</h3>
+        <button type="button" class="btn-close-modal text-muted" (click)="resetForm()">
+          <i class="pi pi-times"></i>
+        </button>
+      </div>
+      <div class="modal-body text-center py-2">
+        <div class="mb-3">
+          <span class="status-badge" [class.eligible]="res.eligible" [class.not-eligible]="!res.eligible" style="font-size: 1.25rem;">
+            {{ res.eligible ? 'ELIGIBLE' : 'NOT ELIGIBLE' }}
+          </span>
+        </div>
+        
+        <h4 class="student-name mb-1" style="font-size: 1.6rem; font-weight: 700;">{{ res.name }}</h4>
+        <p class="student-meta mb-3 text-muted" style="font-size: 1.2rem;">ID: {{ res.student_id }} • Course: {{ res.desired_course }}</p>
+        
+        <div class="score-pill mb-4 p-2 rounded d-inline-flex flex-column align-items-center" style="background: rgba(15, 23, 42, 0.03); min-width: 140px;">
+          <span class="score-label text-muted" style="font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Aggregate Score</span>
+          <span class="score-value font-bold" [class.text-green]="res.eligible" [class.text-red]="!res.eligible" style="font-size: 2rem;">
+            {{ res.percentage }}%
+          </span>
+        </div>
+
+        <div class="assessment-box p-3 mb-3 text-start rounded" 
+             [style.background]="res.eligible ? 'var(--accent-green-light)' : 'var(--accent-red-light)'"
+             [style.color]="res.eligible ? 'var(--accent-green)' : 'var(--accent-red)'"
+             [style.border]="res.eligible ? '1px solid rgba(16, 185, 129, 0.15)' : '1px solid rgba(225, 29, 72, 0.15)'"
+             style="font-size: 1.3rem;">
+          <strong class="d-block mb-1" style="font-weight: 700;">Assessment Message:</strong>
+          {{ res.message }}
+        </div>
+
+        @if (res.recommendations.length > 0) {
+          <div class="recommendations-box text-start p-3 rounded" style="background: rgba(15, 23, 42, 0.02); border: 1px solid var(--border-color);">
+            <h5 class="mb-2" style="font-size: 1.2rem; font-weight: 700; color: var(--text-main);"><i class="pi pi-compass me-1 text-violet"></i> Guidance & Recommendations:</h5>
+            <ul class="mb-0 ps-3" style="font-size: 1.2rem; line-height: 1.5;">
+              @for (rec of res.recommendations; track rec) {
+                <li class="text-muted mb-1">{{ rec }}</li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+      <div class="modal-footer d-flex justify-content-center mt-3 pt-3 border-top border-light">
+        <button type="button" class="btn btn-primary px-5" (click)="resetForm()">
+          Add Another Application
+        </button>
+      </div>
+    </div>
+  </div>
+}
+
+@if (errorMessage(); as err) {
+  <div class="result-modal-backdrop animate-fade-in">
+    <div class="result-modal-card">
+      <div class="modal-header d-flex align-items-center justify-content-between mb-3">
+        <h3 class="modal-title text-red m-0" style="font-size: 1.5rem;"><i class="pi pi-exclamation-triangle me-2"></i>Submission Error</h3>
+        <button type="button" class="btn-close-modal text-muted" (click)="errorMessage.set(null)">
+          <i class="pi pi-times"></i>
+        </button>
+      </div>
+      <div class="modal-body text-center py-3">
+        <p class="text-muted mb-3" style="font-size: 1.3rem;">We encountered an issue while processing the eligibility checklist:</p>
+        <div class="p-3 mb-2 rounded text-red" style="background: var(--accent-red-light); border: 1px solid rgba(225, 29, 72, 0.15); font-size: 1.3rem; font-weight: 600;">
+          {{ err }}
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center mt-3 pt-3 border-top border-light">
+        <button type="button" class="btn btn-primary px-4" (click)="errorMessage.set(null)">
+          Dismiss
+        </button>
+      </div>
+    </div>
+  </div>
+}

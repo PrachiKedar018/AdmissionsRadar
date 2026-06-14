@@ -3,20 +3,16 @@
   @if (application(); as app) {
   <div class="row justify-content-center">
     <div class="col-12 col-xl-10">
-      <div class="d-flex align-items-center justify-content-between mb-4 animate-fade-in">
+      <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between mb-4 gap-3 animate-fade-in">
         <div>
-          <button (click)="goBack()" class="btn btn-outline d-inline-flex align-items-center gap-2 mb-2"
-            style="font-size: 1.3rem;">
+          <button (click)="goBack()" class="btn btn-outline d-inline-flex align-items-center gap-2 mb-2 btn-back">
             <i class="pi pi-arrow-left"></i> Back to Dashboard
           </button>
           <h1 class="h3 mt-2 mb-1">Application Details</h1>
-          <p class="text-muted" style="font-size: 1.3rem;">Viewing details for student
-            <strong>{{app.student_id}}</strong>
-          </p>
+          <p class="text-muted detail-subtitle">Viewing details for student <strong>{{app.student_id}}</strong></p>
         </div>
         <div>
-          <span class="status-badge" [class.eligible]="app.eligible" [class.not-eligible]="!app.eligible"
-            style="font-size: 1.4rem; padding: 0.6rem 1.4rem;">
+          <span class="status-badge detail-status" [class.eligible]="app.eligible" [class.not-eligible]="!app.eligible">
             {{app.eligible ? 'Eligible' : 'Not Eligible'}}
           </span>
         </div>
@@ -25,66 +21,63 @@
       <div class="row g-4 animate-fade-in">
         <div class="col-12 col-md-5">
           <div class="luxury-card h-100">
-            <h3 class="h4 mb-3 border-bottom pb-2" style="font-size: 1.8rem;">Candidate Profile</h3>
+            <h3 class="h4 mb-3 border-bottom pb-2 card-title">Candidate Profile</h3>
 
             <div class="mb-3">
-              <label class="text-muted d-block" style="font-size: 1.2rem; font-weight: 500;">FULL NAME</label>
-              <div class="font-semibold" style="font-size: 1.6rem; color: var(--text-main);">{{app.name}}</div>
+              <label class="profile-label">FULL NAME</label>
+              <div class="profile-value text-main">{{app.name}}</div>
             </div>
 
             <div class="mb-3">
-              <label class="text-muted d-block" style="font-size: 1.2rem; font-weight: 500;">STUDENT ID</label>
-              <div class="font-semibold" style="font-size: 1.6rem; color: var(--text-main);">{{app.student_id}}</div>
+              <label class="profile-label">STUDENT ID</label>
+              <div class="profile-value text-main">{{app.student_id}}</div>
             </div>
 
             <div class="row mb-3">
               <div class="col-6">
-                <label class="text-muted d-block" style="font-size: 1.2rem; font-weight: 500;">AGE</label>
-                <div class="font-semibold" style="font-size: 1.6rem; color: var(--text-main);">{{app.age}} Years</div>
+                <label class="profile-label">AGE</label>
+                <div class="profile-value text-main">{{app.age}} Years</div>
               </div>
               <div class="col-6">
-                <label class="text-muted d-block" style="font-size: 1.2rem; font-weight: 500;">GENDER</label>
-                <div class="font-semibold"
-                  style="font-size: 1.6rem; color: var(--text-main); text-transform: capitalize;">{{app.gender}}</div>
+                <label class="profile-label">GENDER</label>
+                <div class="profile-value text-main text-capitalize">{{app.gender}}</div>
               </div>
             </div>
 
             <div class="mb-3">
-              <label class="text-muted d-block" style="font-size: 1.2rem; font-weight: 500;">DESIRED COURSE</label>
-              <div class="font-semibold" style="font-size: 1.6rem; color: var(--accent-violet);">{{app.desired_course}}
-              </div>
+              <label class="profile-label">DESIRED COURSE</label>
+              <div class="profile-value text-violet">{{app.desired_course}}</div>
             </div>
 
             <div class="mb-3">
-              <label class="text-muted d-block" style="font-size: 1.2rem; font-weight: 500;">SUBMISSION DATE</label>
-              <div class="font-semibold" style="font-size: 1.6rem; color: var(--text-main);">{{app.timestamp |
-                date:'medium'}}</div>
+              <label class="profile-label">SUBMISSION DATE</label>
+              <div class="profile-value text-main">{{app.timestamp | date:'medium'}}</div>
             </div>
           </div>
         </div>
+        
         <div class="col-12 col-md-7">
           <div class="luxury-card h-100">
             <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
-              <h3 class="h4" style="font-size: 1.8rem; margin: 0;">Academic Records</h3>
+              <h3 class="h4 card-title m-0">Academic Records</h3>
               <div class="d-flex align-items-center gap-2">
-                <span class="text-muted" style="font-size: 1.3rem;">Aggregate:</span>
-                <span class="font-bold" [class.text-green]="app.eligible" [class.text-red]="!app.eligible"
-                  style="font-size: 1.8rem;">
+                <span class="text-muted aggregate-label">Aggregate:</span>
+                <span class="font-bold aggregate-value" [class.text-green]="app.eligible" [class.text-red]="!app.eligible">
                   {{app.percentage}}%
                 </span>
               </div>
             </div>
             <div class="table-responsive mb-4">
-              <table class="table table-sm table-borderless align-middle" style="font-size: 1.4rem;">
+              <table class="table table-sm table-borderless align-middle records-table">
                 <thead>
-                  <tr class="text-muted" style="border-bottom: 1px solid var(--border-color);">
+                  <tr class="text-muted table-header-row">
                     <th>Subject</th>
                     <th class="text-end">Marks Obtainable (100)</th>
                   </tr>
                 </thead>
                 <tbody>
                   @for (subject of app.raw_payload.subjects; track subject.name) {
-                  <tr style="border-bottom: 1px solid rgba(0,0,0,0.02);">
+                  <tr class="table-body-row">
                     <td class="py-2">{{subject.name}}</td>
                     <td class="text-end py-2 font-semibold" [class.text-red]="subject.marks < 33"
                       [class.text-main]="subject.marks >= 33">{{subject.marks}}</td>
@@ -95,20 +88,18 @@
             </div>
 
             @if (app.raw_payload.jeeQualification || app.raw_payload.neetQualification) {
-            <div class="mt-3 p-3 rounded"
-              style="background: rgba(79, 70, 229, 0.04); border: 1px solid rgba(79, 70, 229, 0.1);">
-              <h4 class="mb-2" style="font-size: 1.5rem; color: var(--accent-violet);">Entrance Exam Performance</h4>
+            <div class="mt-3 p-3 rounded entrance-performance">
+              <h4 class="mb-2 entrance-title">Entrance Exam Performance</h4>
 
               @if (app.raw_payload.jeeQualification; as jee) {
               <div class="row">
                 <div class="col-6">
-                  <span class="text-muted" style="font-size: 1.2rem;">JEE MAIN STATUS</span>
-                  <div class="font-bold" style="font-size: 1.4rem;">{{jee.cleared === 'yes' ? 'Qualified' : 'Not
-                    Qualified'}}</div>
+                  <span class="performance-label">JEE MAIN STATUS</span>
+                  <div class="font-bold performance-value">{{jee.cleared === 'yes' ? 'Qualified' : 'Not Qualified'}}</div>
                 </div>
                 <div class="col-6">
-                  <span class="text-muted" style="font-size: 1.2rem;">JEE SCORE</span>
-                  <div class="font-bold" style="font-size: 1.4rem;">{{jee.score}}</div>
+                  <span class="performance-label">JEE SCORE</span>
+                  <div class="font-bold performance-value">{{jee.score}}</div>
                 </div>
               </div>
               }
@@ -116,13 +107,12 @@
               @if (app.raw_payload.neetQualification; as neet) {
               <div class="row">
                 <div class="col-6">
-                  <span class="text-muted" style="font-size: 1.2rem;">NEET STATUS</span>
-                  <div class="font-bold" style="font-size: 1.4rem;">{{neet.cleared === 'yes' ? 'Qualified' : 'Not
-                    Qualified'}}</div>
+                  <span class="performance-label">NEET STATUS</span>
+                  <div class="font-bold performance-value">{{neet.cleared === 'yes' ? 'Qualified' : 'Not Qualified'}}</div>
                 </div>
                 <div class="col-6">
-                  <span class="text-muted" style="font-size: 1.2rem;">NEET SCORE</span>
-                  <div class="font-bold" style="font-size: 1.4rem;">{{neet.score}}</div>
+                  <span class="performance-label">NEET SCORE</span>
+                  <div class="font-bold performance-value">{{neet.score}}</div>
                 </div>
               </div>
               }
@@ -134,18 +124,16 @@
 
       <div class="row mt-4 animate-fade-in">
         <div class="col-12">
-          <div class="luxury-card"
-            [style.border-color]="app.eligible ? 'rgba(16, 185, 129, 0.3)' : 'rgba(225, 29, 72, 0.3)'">
-            <h3 class="h4 mb-3 border-bottom pb-2" style="font-size: 1.8rem;">Eligibility Assessment</h3>
-            <div class="p-3 rounded mb-3" [class.bg-green-light]="app.eligible" [class.bg-red-light]="!app.eligible"
-              style="font-size: 1.4rem;">
-              <strong style="font-size: 1.5rem;">Result:</strong> {{app.message}}
+          <div class="luxury-card assessment-card" [class.eligible-border]="app.eligible" [class.not-eligible-border]="!app.eligible">
+            <h3 class="h4 mb-3 border-bottom pb-2 card-title">Eligibility Assessment</h3>
+            <div class="p-3 rounded mb-3 assessment-result-box" [class.bg-green-light]="app.eligible" [class.bg-red-light]="!app.eligible">
+              <strong class="result-label">Result:</strong> {{app.message}}
             </div>
 
             @if (app.recommendations && app.recommendations.length > 0) {
             <div>
-              <h4 class="h5 mb-2" style="font-size: 1.5rem;">Counselor Guidance & Recommendations:</h4>
-              <ul class="ps-3 mb-0" style="font-size: 1.4rem; line-height: 1.6;">
+              <h4 class="h5 mb-2 guidance-title">Counselor Guidance & Recommendations:</h4>
+              <ul class="ps-3 mb-0 guidance-list">
                 @for (rec of app.recommendations; track rec) {
                 <li class="mb-1 text-muted">{{rec}}</li>
                 }
@@ -162,9 +150,9 @@
   <div class="row justify-content-center">
     <div class="col-12 col-md-6 text-center py-5">
       <div class="luxury-card">
-        <i class="pi pi-exclamation-triangle text-danger" style="font-size: 3rem;"></i>
-        <h2 class="mt-3" style="font-size: 2.2rem;">Not Found</h2>
-        <p class="text-muted my-3" style="font-size: 1.4rem;">{{errorMessage()}}</p>
+        <i class="pi pi-exclamation-triangle text-danger error-icon"></i>
+        <h2 class="mt-3 error-title">Not Found</h2>
+        <p class="text-muted my-3 error-msg-detail">{{errorMessage()}}</p>
         <button (click)="goBack()" class="btn btn-primary">
           Back to Dashboard
         </button>
@@ -176,6 +164,6 @@
 } @else {
 <div class="d-flex flex-column align-items-center justify-content-center py-5">
   <p-progress-spinner ariaLabel="loading" />
-  <p class="text-muted mt-3" style="font-size: 1.4rem;">Loading application details...</p>
+  <p class="text-muted mt-3 loading-text">Loading application details...</p>
 </div>
 }

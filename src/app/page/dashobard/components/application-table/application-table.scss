@@ -75,6 +75,36 @@
      }
    }
 
+.table-responsive {
+  border-radius: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.02);
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(79, 70, 229, 0.15);
+    border-radius: 999px;
+    &:hover {
+      background: var(--accent-violet);
+    }
+  }
+}
+
+::ng-deep .custom-table {
+  .p-datatable-thead>tr>th,
+  .p-datatable-tbody>tr>td {
+    white-space: nowrap;
+  }
+}
+
 .table-header-container {
   width: 100%;
   
@@ -155,6 +185,21 @@
         border-color: var(--accent-violet) !important;
         box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15) !important;
         background: #ffffff;
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .table-header-container {
+    .search-wrapper {
+      max-width: 100% !important;
+    }
+    .filter-wrapper {
+      width: 100%;
+      justify-content: space-between;
+      .filter-select {
+        flex: 1;
       }
     }
   }

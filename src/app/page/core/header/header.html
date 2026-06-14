@@ -1,19 +1,31 @@
-<header class="header py-3 px-4 sticky-top">
-    <div class="container-fluid d-flex align-items-center justify-content-between">
-        <div class="brand-logo d-flex align-items-center gap-2">
-
+<header class="header py-2 py-md-3 px-3 px-md-4 sticky-top">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <div class="brand-logo d-flex align-items-center gap-2" [routerLink]="authService.currentUser().role === 'counselor' ? '/apply' : '/dashboard'">
             <div class="logo-mark">AR</div>
             <div class="d-flex flex-column align-items-start">
                 <span class="logo-text">AdmissionRadar</span>
-                <span class="logo-sub">College Admission Eligibility Portal</span>
+                <span class="logo-sub d-none d-md-inline">College Admission Eligibility Portal</span>
             </div>
-
         </div>
-        <div class="header-controls d-flex align-items-center gap-3">
-            <div class="role-selector-container d-flex align-items-center gap-2">
+        
+        <div class="nav-links d-flex align-items-center gap-2">
+            @if (authService.currentUser().role === 'admin' || authService.currentUser().role === 'viewer') {
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">
+                    <i class="pi pi-th-large me-1"></i>Dashboard
+                </a>
+            }
+            @if (authService.currentUser().role === 'counselor') {
+                <a class="nav-link" routerLink="/apply" routerLinkActive="active">
+                    <i class="pi pi-file-edit me-1"></i>Apply Form
+                </a>
+            }
+        </div>
+
+        <div class="header-controls d-flex align-items-center gap-2 gap-md-3">
+            <div class="role-selector-container d-flex align-items-center gap-1 gap-md-2">
                 <span class="role-label d-none d-sm-inline"><i class="pi pi-user-edit me-1"></i>Test Role:</span>
                 <p-select placeholder="Select" [options]="roles" [ngModel]="authService.currentUser().role"
-                    (ngModelChange)="onRoleChange($event)"class="role-dropdown"></p-select>
+                    (ngModelChange)="onRoleChange($event)" class="role-dropdown"></p-select>
             </div>
         </div>
     </div>

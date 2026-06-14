@@ -54,7 +54,7 @@ h6 {
     font-weight: 700;
     letter-spacing: -0.02em;
     color: var(--text-main);
-    text-shadow: 0 2px 10px rgb(236 242 255 / 30%)s;
+    text-shadow: 0 2px 10px rgba(236, 242, 255, 0.3);
 }
 
 .error-msg {
@@ -123,6 +123,7 @@ h6 {
   }
 }
     .form-control-prime {
+      width: 100%;
       background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: 10px;

@@ -11,7 +11,7 @@
                 <span class="subject-index">Subject {{ $index + 1 }}</span>
                 </div>
                 <div class="row g-2">
-                    <div class="col-7">
+                    <div class="col-12 col-sm-7">
                         <label [for]="'sub-name-' + $index" class="visually-hidden">Subject Name</label>
                         <input type="text"
                         pInputText
@@ -22,7 +22,7 @@
                             <span class="error-msg">Name Required</span>
                         }
                     </div>
-                    <div class="col-5">
+                    <div class="col-12 col-sm-5">
                         <label [for]="'sub-marks-' + $index" class="visually-hidden">Marks</label>
                         <input type="number"
                         pInputText
@@ -37,7 +37,7 @@
                             <span class="error-msg">Required 0 to 100</span>
                         }
                         @else {
-                            0 to 100
+                            <span class="error-msg">0 to 100</span>
                         }
                       }
                     </div>
