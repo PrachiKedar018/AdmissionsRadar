@@ -22,7 +22,7 @@ export class Header {
   ]
   onRoleChange(newRole: UserRole) {
     this.authService.changeRole(newRole);
-    if(newRole === 'counselor'){
+    if (newRole === 'counselor') {
       this.router.navigate(['/apply']);
     }
     else {

@@ -33,13 +33,27 @@
     pointer-events: none;
     transition: all 0.45s ease;
   }
-  &.total-card{
+
+  &.total-card {
     border: 1px solid var(--accent-violet);
+  }
+
+  &.pass-card {
+    border: 1px solid var(--accent-green);
+  }
+
+  &.fail-card {
+    border: 1px solid var(--accent-red);
+  }
+
+  &.avg-card {
+    border: 1px solid var(--accent-amber);
   }
 
   @include mobile {
     padding: 12px;
     border-radius: 16px;
+
     &::after {
       border-radius: 16px;
     }
@@ -166,7 +180,7 @@
     height: 36px;
     border-radius: 8px;
     font-size: 1rem;
-    
+
     i {
       font-size: 1.1rem !important;
     }
