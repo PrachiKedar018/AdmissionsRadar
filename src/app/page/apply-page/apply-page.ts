@@ -24,7 +24,7 @@ export class ApplyPage {
   isLoading = signal(false);
   result = signal<EligibilityResponse | null>(null);
 
-   private defaultSubjects = [
+  private defaultSubjects = [
     { name: 'Mathematics', marks: '' },
     { name: 'Physics', marks: '' },
     { name: 'Chemistry', marks: '' },
@@ -37,12 +37,12 @@ export class ApplyPage {
     this.applyForm = this.fb.group({
       name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
       age: ['', [Validators.required, Validators.min(17), Validators.max(25), Validators.pattern(/^\d+$/)]],
-      gender:['',[Validators.required]],
-      desiredCourse:['',[Validators.required]],
-      subjects:this.fb.array(
-        this.defaultSubjects.map(sub=>this.fb.group({
-          name:[sub.name,Validators.required],
-          marks:[sub.marks,[Validators.required,Validators.min(0), Validators.max(100), Validators.pattern(/^\d+$/)]]
+      gender: ['', [Validators.required]],
+      desiredCourse: ['', [Validators.required]],
+      subjects: this.fb.array(
+        this.defaultSubjects.map(sub => this.fb.group({
+          name: [sub.name, Validators.required],
+          marks: [sub.marks, [Validators.required, Validators.min(0), Validators.max(100), Validators.pattern(/^\d+$/)]]
         }))
       )
     })
@@ -84,21 +84,35 @@ export class ApplyPage {
     });
   }
 
-  onSubmit():void{
-    if(this.applyForm.invalid){
+  resetForm(): void {
+    this.applyForm.reset({
+      name: '',
+      age: '',
+      gender: '',
+      desiredCourse: '',
+      subjects: this.defaultSubjects.map(sub => ({
+        name: sub.name,
+        marks: ''
+      }))
+    });
+    this.result.set(null);
+  }
+
+  onSubmit(): void {
+    if (this.applyForm.invalid) {
       this.applyForm.markAllAsTouched();
       return;
     }
     this.isLoading.set(true);
     const formVal = this.applyForm.value;
-    const payload:ApplicationPayload={
-      name:formVal.name,
-      age:parseInt(formVal.age,10),
-      gender:formVal.gender,
-      desiredCourse:formVal.desiredCourse,
-      subjects:formVal.subjects.map((s:any)=>({
-        name:s.name,
-        marks:parseInt(s.marks,10)
+    const payload: ApplicationPayload = {
+      name: formVal.name,
+      age: parseInt(formVal.age, 10),
+      gender: formVal.gender,
+      desiredCourse: formVal.desiredCourse,
+      subjects: formVal.subjects.map((s: any) => ({
+        name: s.name,
+        marks: parseInt(s.marks, 10)
       })),
       ...(this.requiredExam() === 'JEE' && formVal.jeeQualification ? {
         jeeQualification: {
@@ -114,16 +128,17 @@ export class ApplyPage {
       } : {})
     }
     this.eligibilityService.checkEligibility(payload)
-    .pipe().subscribe({
-      next:(res)=>{
-        this.result.set(res);
-        this.isLoading.set(false);
-        this.router.navigate(['/dashboard']);
-      },
-      error: (err) => {
-        alert("Submission failed!");
-        this.isLoading.set(false);
-      }
-    })
+      .pipe().subscribe({
+        next: (res) => {
+          this.result.set(res);
+          this.isLoading.set(false);
+          alert("Application added successfully!");
+          this.resetForm();
+        },
+        error: (err) => {
+          alert("Submission failed!");
+          this.isLoading.set(false);
+        }
+      })
   }
 }

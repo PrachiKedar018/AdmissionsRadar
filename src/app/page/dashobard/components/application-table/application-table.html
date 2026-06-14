@@ -1,5 +1,26 @@
-<p-table [value]="data" styleClass="custom-table" [rows]="10" 
-        [paginator]="true">
+<div class="table-header-container d-flex flex-column flex-sm-row justify-content-between align-items-sm-center mb-4 gap-3">
+  <div class="search-wrapper">
+    <i class="pi pi-search search-icon"></i>
+    <input 
+      type="text" 
+      class="search-input" 
+      placeholder="Search submissions (ID, name, course)..." 
+      (input)="onSearch($event)"
+    />
+  </div>
+  <div class="filter-wrapper d-flex align-items-center gap-2">
+    <label class="filter-label mb-0 text-muted font-medium">Filter by Eligibility:</label>
+    <select class="filter-select" (change)="onEligibilityChange($event)">
+      <option value="all">All</option>
+      <option value="true">Eligible</option>
+      <option value="false">Not Eligible</option>
+    </select>
+  </div>
+</div>
+
+<p-table #dt [value]="data" styleClass="custom-table" [rows]="10" 
+        [paginator]="true"
+        [globalFilterFields]="['student_id', 'name', 'age', 'gender', 'desired_course', 'eligible', 'percentage']">
     <ng-template pTemplate="header">
         <tr>
             <th pSortableColumn="student_id">ID <p-sortIcon field="student_id"></p-sortIcon></th>
@@ -15,17 +36,23 @@
     </ng-template>
     <ng-template pTemplate="body" let-app>
         <tr class="table-row">
-            <td class="font-semibold">{{app.student_id}}</td>
-            <td class="font-medium">{{app.name}}</td>
+            <td class="fw-semibold">{{app.student_id}}</td>
+            <td class="fw-medium">{{app.name}}</td>
             <td>{{app.age}}</td>
             <td>{{app.gender}}</td>
             <td>{{app.desired_course}}</td>
             <td>
                 <span class="status-badge" [class.eligible]="app.eligible" [class.not-eligible]="!app.eligible">{{app.eligible ? 'Eligible':'Not Eligible'}}</span>
             </td>
-            <td class="font-bold" [class.text-green]="app.eligible" [class.text-red]="!app.eligible">{{app.percentage}}%</td>
+            <td class="fw-bold" [class.text-green]="app.eligible" [class.text-red]="!app.eligible">{{app.percentage}}%</td>
             <td class="small text-muted">{{app.timestamp | date:'short'}}</td>
-            <td><button>click</button></td>
+            <td>
+                <button class="btn btn-primary" style="font-size: 1.1rem; padding: 4px 10px; border-radius: 6px;" 
+                        [disabled]="!authService.canViewDetails()" 
+                        (click)="viewDetails(app.student_id)">
+                    Details
+                </button>
+            </td>
         </tr>
     </ng-template>
 </p-table>

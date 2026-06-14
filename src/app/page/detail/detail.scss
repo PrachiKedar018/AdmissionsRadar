@@ -1,0 +1,65 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.luxury-card {
+  @include glassmorphism;
+  background: var(--surface-card);
+  border: 1px solid var(--border-color);
+  border-radius: $border-radius-lg;
+  padding: 22.5px;
+  margin-bottom: 15px;
+  transition: $transition-smooth;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: $border-radius-lg;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.01) 50%, rgba(79, 70, 229, 0.05) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: $transition-smooth;
+  }
+
+  &:hover {
+    box-shadow: 0 20px 40px 0 rgba(15, 23, 42, 0.06), 0 0 20px 0 rgba(79, 70, 229, 0.02);
+    border-color: rgba(79, 70, 229, 0.22);
+    transform: translateY(-2px);
+
+    &::after {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(0, 0, 0, 0.01) 50%, rgba(16, 185, 129, 0.1) 100%);
+    }
+  }
+}
+
+.bg-green-light {
+  background-color: var(--accent-green-light);
+  color: var(--accent-green);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+}
+
+.bg-red-light {
+  background-color: var(--accent-red-light);
+  color: var(--accent-red);
+  border: 1px solid rgba(251, 113, 133, 0.15);
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

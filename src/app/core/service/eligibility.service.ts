@@ -108,6 +108,9 @@ export class EligibilityService {
     return of(apps).pipe(delay(800));
   }
 
-
-
+  getApplicationById(id: string): Observable<EligibilityResponse | undefined> {
+    const apps = this.getStoredApplication();
+    const app = apps.find(a => a.student_id === id);
+    return of(app).pipe(delay(300));
+  }
 }

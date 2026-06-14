@@ -5,19 +5,19 @@
       letter-spacing: -0.02em;
     }
     .subject-card {
-      background: rgba(15, 23, 42, 0.25);
+      background: rgba(15, 23, 42, 0.02);
       border: 1px solid var(--border-color);
       border-radius: 16px;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       
       &:hover {
-        background: rgba(15, 23, 42, 0.45);
-        border-color: rgba(255, 255, 255, 0.1);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        background: rgba(15, 23, 42, 0.04);
+        border-color: rgba(79, 70, 229, 0.15);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
       }
       
       &:focus-within {
-        background: rgba(15, 23, 42, 0.55);
+        background: rgba(15, 23, 42, 0.05);
         border-color: rgba(129, 140, 248, 0.4) !important;
         box-shadow: 0 10px 30px rgba(129, 140, 248, 0.08) !important;
       }
@@ -38,7 +38,7 @@
       letter-spacing: 0.02em;
     }
     .form-control-prime {
-      background: rgba(15, 23, 42, 0.45);
+      background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: 8px;
       padding: 0.6rem 0.85rem;
@@ -48,14 +48,15 @@
       transition: all 0.3s ease;
       
       &::placeholder {
-        color: rgba(148, 163, 184, 0.3);
+        color: var(--text-muted);
+        opacity: 0.5;
       }
 
       &:focus {
         outline: none;
         border-color: var(--accent-violet) !important;
         box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15) !important;
-        background: rgba(9, 13, 22, 0.7);
+        background: #ffffff;
       }
     }
     .p-inputgroup {
@@ -69,7 +70,7 @@
       }
       
       .input-group-addon {
-        background: rgba(15, 23, 42, 0.5);
+        background: #ffffff;
         border: 1px solid var(--border-color);
         border-left: none;
         border-top-right-radius: 8px;

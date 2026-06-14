@@ -1,83 +1,99 @@
 .exam-section {
-      border-radius: 16px;
-      padding: 2rem !important;
-      position: relative;
-      overflow: hidden;
-      
-      &.jee-theme {
-        background: rgba(245, 158, 11, 0.02);
-        border: 1px solid rgba(245, 158, 11, 0.18);
-        box-shadow: inset 0 0 20px rgba(245, 158, 11, 0.03), 0 4px 25px rgba(0,0,0,0.15);
-      }
-      
-      &.neet-theme {
-        background: rgba(52, 211, 153, 0.02);
-        border: 1px solid rgba(52, 211, 153, 0.18);
-        box-shadow: inset 0 0 20px rgba(52, 211, 153, 0.03), 0 4px 25px rgba(0,0,0,0.15);
-      }
-    }
-    .exam-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-main);
-      
-      .text-amber {
-        color: var(--accent-amber);
-      }
-      .text-green {
-        color: var(--accent-green);
-      }
-    }
-    .required-label::after {
-      content: ' *';
-      color: var(--accent-red);
-    }
-    .form-label {
-      display: block;
-      margin-bottom: 0.55rem;
-      font-weight: 600;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .form-control-prime {
-      background: rgba(15, 23, 42, 0.45);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 0.75rem 1rem;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      font-family: inherit;
-      color: var(--text-main);
-      font-size: 0.95rem;
+  border-radius: 16px;
+  padding: 2rem !important;
+  position: relative;
+  overflow: hidden;
+  height: 22rem;
 
-      &:focus {
-        outline: none;
-        border-color: var(--accent-violet) !important;
-        box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.18) !important;
-        background: rgba(9, 13, 22, 0.75);
-      }
-    }
-    ::ng-deep .p-select {
-      background: rgba(15, 23, 42, 0.45) !important;
-      border: 1px solid var(--border-color) !important;
-      border-radius: 10px !important;
-      
-      &:not(.p-disabled).p-focus {
-        border-color: var(--accent-violet) !important;
-        box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.18) !important;
-      }
-      
-      .p-select-label {
-        padding: 0.75rem 1rem !important;
-        color: var(--text-main) !important;
-        font-size: 0.95rem;
-      }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in {
-      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
+  &.jee-theme {
+    background: rgba(245, 158, 11, 0.02);
+    border: 1px solid rgba(245, 158, 11, 0.18);
+    box-shadow: inset 0 0 20px rgba(245, 158, 11, 0.03), 0 4px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  &.neet-theme {
+    background: rgba(52, 211, 153, 0.02);
+    border: 1px solid rgba(52, 211, 153, 0.18);
+    box-shadow: inset 0 0 20px rgba(52, 211, 153, 0.03), 0 4px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.exam-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+
+  .text-amber {
+    color: var(--accent-amber);
+  }
+
+  .text-green {
+    color: var(--accent-green);
+  }
+}
+
+.required-label::after {
+  content: ' *';
+  color: var(--accent-red);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.55rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.form-control-prime {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+  color: var(--text-main);
+  font-size: 0.95rem;
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent-violet) !important;
+    box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.18) !important;
+    background: #ffffff;
+  }
+}
+
+::ng-deep .p-select {
+  background: #ffffff !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 10px !important;
+
+  &:not(.p-disabled).p-focus {
+    border-color: var(--accent-violet) !important;
+    box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.18) !important;
+  }
+
+  .p-select-label {
+    padding: 0.75rem 1rem !important;
+    color: var(--text-main) !important;
+    font-size: 0.95rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
