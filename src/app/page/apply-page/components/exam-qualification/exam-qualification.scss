@@ -47,24 +47,6 @@
   letter-spacing: 0.04em;
 }
 
-.form-control-prime {
-  background: #ffffff;
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 0.75rem 1rem;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  font-family: inherit;
-  color: var(--text-main);
-  font-size: 0.95rem;
-
-  &:focus {
-    outline: none;
-    border-color: var(--accent-violet) !important;
-    box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.18) !important;
-    background: #ffffff;
-  }
-}
-
 ::ng-deep .p-select {
   background: #ffffff !important;
   border: 1px solid var(--border-color) !important;

@@ -37,28 +37,7 @@
       align-items: center;
       letter-spacing: 0.02em;
     }
-    .form-control-prime {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 0.6rem 0.85rem;
-      font-family: inherit;
-      color: var(--text-main);
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-      
-      &::placeholder {
-        color: var(--text-muted);
-        opacity: 0.5;
-      }
 
-      &:focus {
-        outline: none;
-        border-color: var(--accent-violet) !important;
-        box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15) !important;
-        background: #ffffff;
-      }
-    }
     .p-inputgroup {
       display: flex;
       align-items: stretch;
