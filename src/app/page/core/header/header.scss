@@ -1,10 +1,10 @@
 .header {
-    background: rgba(2, 6, 23, 0.7);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 30px rgba(15, 23, 42, 0.03);
     position: fixed;
     top: 0;
     width: 100%;
@@ -49,6 +49,26 @@
         text-transform: uppercase;
     }
 }
+::ng-deep .role-dropdown {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      
+      .p-select-label {
+        font-size: 0.85rem;
+        font-weight: 800;
+        color: var(--accent-violet) !important;
+        text-transform: uppercase;
+        padding: 2.5px 5px !important;
+        font-family: inherit;
+        letter-spacing: 0.04em;
+      }
+      
+      .p-select-dropdown {
+        width: 15px !important;
+        color: var(--accent-violet) !important;
+      }
+    }
 
 // .nav-links {
 //     .nav-link {
@@ -99,15 +119,15 @@
 // }
 
 .role-selector-container {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 0.48rem 0.96rem 0.48rem 1.36rem;
+    background: rgba(15, 23, 42, 0.03);
+    padding: 4.8px 9.6px 4.8px 13.6px;
     border-radius: 10px;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 
     &:hover {
-        border-color: rgba(129, 140, 248, 0.3);
-        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(79, 70, 229, 0.3);
+        background: rgba(15, 23, 42, 0.05);
     }
 
     .role-label {
@@ -129,13 +149,13 @@
         font-weight: 800;
         color: var(--accent-violet) !important;
         text-transform: uppercase;
-        padding: 0.4rem 0.8rem !important;
+        padding: 4px 8px !important;
         font-family: inherit;
         letter-spacing: 0.04em;
     }
 
     .p-select-dropdown {
-        width: 2.4rem !important;
+        width: 24px !important;
         color: var(--accent-violet) !important;
     }
 }

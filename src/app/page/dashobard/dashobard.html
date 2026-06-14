@@ -1,1 +1,26 @@
-<p>dashobard works!</p>
+  <div class="container py-4 flex-grow-1">
+      
+      <!-- Top header layout -->
+      <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between mb-4 gap-3">
+        <div class="heading-details">
+          <h1 class="h3 mb-1">Dashboard</h1>
+          <p class="text-muted small">Monitor, filter, and review college admission eligibility submissions.</p>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <span class="user-meta">Logged in as: <strong>{{ authService.currentUser().name }}</strong></span>
+          <span class="role-badge" [class.admin]="authService.currentUser().role === 'admin'">
+            {{ authService.currentUser().role }}
+          </span>
+        </div>
+      </div>
+      @if(isLoading()){
+        <div class="d-flex flex-column align-items-center justify-content-center py-5">
+             <p-progress-spinner ariaLabel="loading" />
+          <span class="text-muted">Retrieving submissions, please wait...</span>
+        </div>
+    }
+    @else{
+        <app-kpi-cards [data]="rawApplication()"/>
+        <app-application-table [data]="rawApplication()"/>
+    }
+      </div>

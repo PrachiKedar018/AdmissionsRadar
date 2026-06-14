@@ -1,0 +1,81 @@
+   ::ng-deep .custom-table {
+     border: none;
+
+     .p-datatable-thead>tr>th {
+       background: rgba(15, 23, 42, 0.03) !important;
+       color: var(--text-main) !important;
+       font-weight: 700;
+       font-size: 1.2rem;
+       text-transform: uppercase;
+       letter-spacing: 0.08em;
+       padding: 11.5px 10px;
+       border-bottom: 2px solid var(--border-color);
+
+       .p-sortable-column-icon {
+         color: var(--text-main);
+         font-size: 0.8rem;
+       }
+
+       &:hover {
+         color: var(--text-main) !important;
+       }
+     }
+
+     .p-datatable-tbody>tr {
+       background: rgba(255, 255, 255, 0.4) !important;
+       color: var(--text-main) !important;
+       transition: all 0.25s ease;
+
+       &:hover {
+         background: rgba(79, 70, 229, 0.04) !important;
+
+         td {
+           border-bottom-color: rgba(79, 70, 229, 0.2) !important;
+           color: var(--text-main) !important;
+         }
+       }
+
+       &>td {
+         padding: 11.5px 10px;
+         border-bottom: 1px solid var(--border-color);
+         font-size: 1.2rem;
+       }
+     }
+   }
+
+   ::ng-deep .p-paginator {
+     background: transparent !important;
+     border: none !important;
+     padding: 12.5px 0 5px 0 !important;
+
+     .p-paginator-page,
+     .p-paginator-next,
+     .p-paginator-last,
+     .p-paginator-first,
+     .p-paginator-prev {
+       border-radius: 8px !important;
+       min-width: 23px !important;
+       height: 23px !important;
+       color: var(--text-muted) !important;
+       font-family: inherit !important;
+       font-size: 0.9rem !important;
+       transition: all 0.2s ease !important;
+
+       &:hover:not(.p-disabled) {
+         background: rgba(15, 23, 42, 0.04) !important;
+         color: var(--text-main) !important;
+       }
+
+       &.p-highlight {
+         background: var(--accent-violet-light) !important;
+         color: var(--accent-violet) !important;
+         font-weight: 700;
+         border: 1px solid rgba(79, 70, 229, 0.2);
+       }
+     }
+   }
+    .font-semibold { font-weight: 600; }
+    .font-medium { font-weight: 500; }
+    .font-bold { font-weight: 700; }
+    .text-green { color: var(--accent-green); }
+    .text-red { color: var(--accent-red); }

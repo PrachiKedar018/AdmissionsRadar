@@ -1,0 +1,84 @@
+ .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+    }
+    .subject-card {
+      background: rgba(15, 23, 42, 0.25);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      
+      &:hover {
+        background: rgba(15, 23, 42, 0.45);
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      }
+      
+      &:focus-within {
+        background: rgba(15, 23, 42, 0.55);
+        border-color: rgba(129, 140, 248, 0.4) !important;
+        box-shadow: 0 10px 30px rgba(129, 140, 248, 0.08) !important;
+      }
+    }
+    .subject-index {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .error-badge {
+      font-size: 0.75rem;
+      color: var(--accent-red);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      letter-spacing: 0.02em;
+    }
+    .form-control-prime {
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.6rem 0.85rem;
+      font-family: inherit;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      
+      &::placeholder {
+        color: rgba(148, 163, 184, 0.3);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--accent-violet) !important;
+        box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15) !important;
+        background: rgba(9, 13, 22, 0.7);
+      }
+    }
+    .p-inputgroup {
+      display: flex;
+      align-items: stretch;
+      
+      .form-control-prime {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        flex: 1;
+      }
+      
+      .input-group-addon {
+        background: rgba(15, 23, 42, 0.5);
+        border: 1px solid var(--border-color);
+        border-left: none;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        padding: 0.6rem 0.85rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+      }
+    }

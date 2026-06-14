@@ -1,1 +1,77 @@
-<p>student-info-form works!</p>
+<div class="row g-4" [formGroup]="form">
+    <div class="col-12 col-md-6">
+        <label for="name" class="form-label required-label">Student Name</label>
+        <div class="width-100">
+            <input type="text"
+            pInputText
+            id="name"
+            formControlName="name"
+             class="form-control-prime w-100" 
+            placeholder="e.g. prachi kedar"
+            >
+            @if(form.get('name')?.touched && form.get('name')?.invalid){
+                <span class="error-msg">
+                      @if (form.get('name')?.hasError('required')) {
+              Name is required.
+            }
+            @else if (form.get('name')?.hasError('pattern')) {
+              Name must contain only letters and spaces.
+            }
+                </span>
+            }
+        </div>
+    </div>
+          <div class="col-12 col-md-6">
+        <label for="name" class="form-label required-label">Age</label>
+        <div class="width-100">
+            <input type="number"
+            pInputText
+            id="age"
+            formControlName="age"
+             class="form-control-prime w-100" 
+            placeholder="e.g. prachi kedar"
+            >
+            @if(form.get('age')?.touched && form.get('age')?.invalid){
+                <span class="error-msg">
+                 @if (form.get('age')?.hasError('required')) {
+              age is required.
+            }
+            @else if (form.get('age')?.hasError('min') || form.get('age')?.hasError('max')) {
+                Age must be between 17 and 25.
+            }
+            </span>
+            }
+        </div>
+    </div>
+      <div class="col-12 col-md-6">
+        <label for="gender" class="form-label required-label">Gender</label>
+        <p-select 
+          [options]="genderOptions" 
+          formControlName="gender" 
+          placeholder="Select Gender"
+          id="gender"
+        ></p-select>
+        @if (form.get('gender')?.touched && form.get('gender')?.invalid) {
+          <span class="error-msg"> Gender selection is required.</span>
+        }
+      </div>
+  <div class="col-12 col-md-6">
+        <label for="desiredCourse" class="form-label required-label">Desired Course</label>
+        <p-select 
+          [options]="groupedCourse" 
+          formControlName="desiredCourse" 
+          placeholder="Select Course"
+          id="desiredCourse"
+          [group]="true"
+        >
+        <ng-template let-group pTemplate="group">
+            <div class="d-flex align-items-center gap-2">
+              <span class="font-bold category-label">{{ group.label }}</span>
+            </div>
+        </ng-template></p-select>
+        @if (form.get('desiredCourse')?.touched && form.get('desiredCourse')?.invalid) {
+          <span class="error-msg"> Course selection is required.</span>
+        }
+      </div>
+    
+</div>

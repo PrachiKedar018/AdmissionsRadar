@@ -1,0 +1,210 @@
+@import "../../../../../styles/variables";
+@import "../../../../../styles/mixins";
+
+.kpi-card {
+  @include glassmorphism;
+  border-radius: 22px;
+  padding: 18.5px 16px;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+    transition: all 0.4s ease;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, 0.02) 60%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: all 0.45s ease;
+  }
+  &.total-card{
+    border: 1px solid var(--accent-violet);
+  }
+}
+
+.total-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(79, 70, 229, 0.25);
+  box-shadow: 0 15px 30px rgba(15, 23, 42, 0.06), 0 0 20px rgba(79, 70, 229, 0.04);
+
+  &::before {
+    background: var(--accent-violet);
+  }
+
+  &::after {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), transparent 60%);
+  }
+}
+
+.pass-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 15px 30px rgba(15, 23, 42, 0.06), 0 0 20px rgba(16, 185, 129, 0.04);
+
+  &::before {
+    background: var(--accent-green);
+  }
+
+  &::after {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), transparent 60%);
+  }
+}
+
+.fail-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(225, 29, 72, 0.25);
+  box-shadow: 0 15px 30px rgba(15, 23, 42, 0.06), 0 0 20px rgba(225, 29, 72, 0.04);
+
+  &::before {
+    background: var(--accent-red);
+  }
+
+  &::after {
+    background: linear-gradient(135deg, rgba(225, 29, 72, 0.2), transparent 60%);
+  }
+}
+
+.avg-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(217, 119, 6, 0.25);
+  box-shadow: 0 15px 30px rgba(15, 23, 42, 0.06), 0 0 20px rgba(217, 119, 6, 0.04);
+
+  &::before {
+    background: var(--accent-amber);
+  }
+
+  &::after {
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.2), transparent 60%);
+  }
+}
+
+.kpi-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.kpi-value {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 4px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+
+  &.total-text {
+    background: linear-gradient(135deg, #1e293b 30%, #4f46e5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &.pass-text {
+    background: linear-gradient(135deg, #065f46 30%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &.fail-text {
+    background: linear-gradient(135deg, #9f1239 30%, #e11d48 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &.avg-text {
+    background: linear-gradient(135deg, #92400e 30%, #d97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.kpi-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+
+  &.total {
+    background: var(--accent-violet-light);
+    color: var(--accent-violet);
+    border: 1px solid rgba(129, 140, 248, 0.15);
+  }
+
+  &.pass {
+    background: var(--accent-green-light);
+    color: var(--accent-green);
+    border: 1px solid rgba(52, 211, 153, 0.15);
+  }
+
+  &.fail {
+    background: var(--accent-red-light);
+    color: var(--accent-red);
+    border: 1px solid rgba(251, 113, 133, 0.15);
+  }
+
+  &.avg {
+    background: var(--accent-amber-light);
+    color: var(--accent-amber);
+    border: 1px solid rgba(245, 158, 11, 0.15);
+  }
+}
+
+.kpi-trend {
+  font-size: 0.78rem;
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.kpi-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.08s;
+}
+
+.delay-2 {
+  animation-delay: 0.16s;
+}
+
+.delay-3 {
+  animation-delay: 0.24s;
+}

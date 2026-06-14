@@ -3,21 +3,21 @@
 @import "./mixins";
 
 :root {
-    --bg-primary: #020617;
-    --bg-secondary: #080d1a;
-    --surface-card: rgba(15, 23, 42, 0.45);
-    --border-color: rgba(255, 255, 255, 0.06);
-    --accent-violet: #818cf8;
-    --accent-violet-hover: #6366f1;
-    --accent-violet-light: rgba(129, 140, 248, 0.08);
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --accent-green: #34d399;
-    --accent-green-light: rgba(52, 211, 153, 0.1);
-    --accent-red: #fb7185;
-    --accent-red-light: rgba(251, 113, 133, 0.1);
-    --accent-amber: #f59e0b;
-    --accent-amber-light: rgba(245, 158, 11, 0.08);
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --surface-card: rgba(255, 255, 255, 0.3);
+    --border-color: rgba(15, 23, 42, 0.08);
+    --accent-violet: #4f46e5;
+    --accent-violet-hover: #4338ca;
+    --accent-violet-light: rgba(79, 70, 229, 0.08);
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --accent-green: #10b981;
+    --accent-green-light: rgba(16, 185, 129, 0.08);
+    --accent-red: #e11d48;
+    --accent-red-light: rgba(225, 29, 72, 0.08);
+    --accent-amber: #d97706;
+    --accent-amber-light: rgba(217, 119, 6, 0.08);
 }
 
 * {
@@ -27,16 +27,120 @@
 }
 
 body {
-    background-color: var(--bg-primary);
+    background: 
+        radial-gradient(circle at 15% 20%, rgba(79, 70, 229, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.06) 0%, transparent 50%),
+        var(--bg-primary);
+    background-attachment: fixed;
     color: var(--text-main);
     font-family: $font-family;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
-    overflow-x: hidden;
     position: relative;
-
+    // overflow: hidden;
 }
 
 html {
     font-size: 62.5%;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+    text-shadow: 0 2px 10px rgb(236 242 255 / 30%)s;
+}
+
+.error-msg {
+    color: var(--accent-red);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 4px;
+    display: block;
+}
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+.btn-primary {
+    background: var(--accent-violet);
+    color: white;
+    border: none;
+
+    &:hover:not(:disabled) {
+        background: var(--accent-violet-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--accent-violet);
+    color: var(--accent-violet);
+
+    &:hover:not(:disabled) {
+        background: var(--bg-secondary);
+    }
+}
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  
+  &.eligible {
+    background-color: var(--accent-green-light);
+    color: var(--accent-green);
+    border: 1px solid rgba(52, 211, 153, 0.25);
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.12);
+  }
+  
+  &.not-eligible {
+    background-color: var(--accent-red-light);
+    color: var(--accent-red);
+    border: 1px solid rgba(251, 113, 133, 0.25);
+    box-shadow: 0 0 15px rgba(251, 113, 133, 0.12);
+  }
+}
+    .form-control-prime {
+      background: rgba(15, 23, 42, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 7.5px 10px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      font-family: inherit;
+      color: var(--text-main);
+      font-size: 0.95rem;
+
+      &::placeholder {
+        color: var(--text-muted);
+        opacity: 0.6;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--accent-violet) !important;
+        box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.18) !important;
+        background: #ffffff;
+      }
+    }

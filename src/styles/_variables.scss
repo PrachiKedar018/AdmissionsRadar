@@ -1,19 +1,19 @@
-// Luxury Dark Theme Colors
-$bg-primary: var(--bg-primary, #030712);
-$bg-secondary: var(--bg-secondary, #090d16);
-$surface-card: var(--surface-card, rgba(15, 23, 42, 0.6));
-$border-color: var(--border-color, rgba(255, 255, 255, 0.06));
-$text-main: var(--text-main, #f8fafc);
-$text-muted: var(--text-muted, #94a3b8);
+// Luxury Light Theme Colors
+$bg-primary: var(--bg-primary, #f8fafc);
+$bg-secondary: var(--bg-secondary, #ffffff);
+$surface-card: var(--surface-card, rgba(255, 255, 255, 0.45));
+$border-color: var(--border-color, rgba(15, 23, 42, 0.08));
+$text-main: var(--text-main, #0f172a);
+$text-muted: var(--text-muted, #475569);
 
-// Neon Accents
-$accent-violet: var(--accent-violet, #818cf8);
-$accent-violet-hover: var(--accent-violet-hover, #6366f1);
-$accent-violet-light: var(--accent-violet-light, rgba(129, 140, 248, 0.1));
-$accent-green: var(--accent-green, #34d399);
-$accent-green-light: var(--accent-green-light, rgba(52, 211, 153, 0.1));
-$accent-red: var(--accent-red, #fb7185);
-$accent-red-light: var(--accent-red-light, rgba(251, 113, 133, 0.1));
+// Elegant Accents
+$accent-violet: var(--accent-violet, #4f46e5);
+$accent-violet-hover: var(--accent-violet-hover, #4338ca);
+$accent-violet-light: var(--accent-violet-light, rgba(79, 70, 229, 0.08));
+$accent-green: var(--accent-green, #10b981);
+$accent-green-light: var(--accent-green-light, rgba(16, 185, 129, 0.08));
+$accent-red: var(--accent-red, #e11d48);
+$accent-red-light: var(--accent-red-light, rgba(225, 29, 72, 0.08));
 
 // Borders & Radii
 $border-radius-lg: 20px;
