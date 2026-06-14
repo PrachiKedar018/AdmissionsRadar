@@ -28,36 +28,36 @@ export const INITIAL_APPLICATION: EligibilityResponse[] = [
       jeeQualification: { cleared: 'yes', score: 250 }
     }
   },
-    {
-      student_id: 'STU-2026-0003',
+  {
+    student_id: 'STU-2026-0002',
+    name: 'Rohan Sharma',
+    age: 20,
+    gender: 'Male',
+    eligible: false,
+    desired_course: 'Mechanical Engineering',
+    message: 'Student failed to meet JEE qualification criteria.',
+    percentage: 72.8,
+    recommendations: [
+      'JEE qualification is required for Engineering courses.',
+      'Consider applying for Commerce or Humanities courses where entrance exams are not mandatory.'
+    ],
+    timestamp: '2026-06-12T13:45:00Z',
+    raw_payload: {
       name: 'Rohan Sharma',
       age: 20,
       gender: 'Male',
-      eligible: false,
-      desired_course: 'Mechanical Engineering',
-      message: 'Student failed to meet JEE qualification criteria.',
-      percentage: 72.8,
-      recommendations: [
-        'JEE qualification is required for Engineering courses.',
-        'Consider applying for Commerce or Humanities courses where entrance exams are not mandatory.'
+      desiredCourse: 'Mechanical Engineering',
+      subjects: [
+        { name: 'Mathematics', marks: 75 },
+        { name: 'Physics', marks: 70 },
+        { name: 'Chemistry', marks: 68 },
+        { name: 'English', marks: 80 },
+        { name: 'Computer Science', marks: 74 },
+        { name: 'Physical Education', marks: 70 }
       ],
-      timestamp: '2026-06-12T13:45:00Z',
-      raw_payload: {
-        name: 'Rohan Sharma',
-        age: 20,
-        gender: 'Male',
-        desiredCourse: 'Mechanical Engineering',
-        subjects: [
-          { name: 'Mathematics', marks: 75 },
-          { name: 'Physics', marks: 70 },
-          { name: 'Chemistry', marks: 68 },
-          { name: 'English', marks: 80 },
-          { name: 'Computer Science', marks: 74 },
-          { name: 'Physical Education', marks: 70 }
-        ],
-        jeeQualification: { cleared: 'no', score: 0 }
-      }
-    },
-  
+      jeeQualification: { cleared: 'no', score: 0 }
+    }
+  },
+
 ];
 
