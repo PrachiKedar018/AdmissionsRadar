@@ -2,61 +2,63 @@
 @import '../../../styles/mixins';
 
 .luxury-card {
-  @include glassmorphism;
-  background: var(--surface-card);
-  border: 1px solid var(--border-color);
-  border-radius: $border-radius-lg;
-  padding: 22.5px;
-  margin-bottom: 15px;
-  transition: $transition-smooth;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  padding: 30px 24px;
+  margin-bottom: 20px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 40px -10px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(0, 0, 0, 0.01);
 
   &::after {
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: $border-radius-lg;
+    border-radius: 24px;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.01) 50%, rgba(79, 70, 229, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1) 50%, rgba(79, 70, 229, 0.05) 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
-    transition: $transition-smooth;
+    transition: all 0.4s ease;
   }
 
   &:hover {
-    box-shadow: 0 20px 40px 0 rgba(15, 23, 42, 0.06), 0 0 20px 0 rgba(79, 70, 229, 0.02);
-    border-color: rgba(79, 70, 229, 0.22);
+    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08);
+    border-color: rgba(79, 70, 229, 0.15);
     transform: translateY(-2px);
 
     &::after {
-      background: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(0, 0, 0, 0.01) 50%, rgba(16, 185, 129, 0.1) 100%);
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(255, 255, 255, 0.1) 50%, rgba(16, 185, 129, 0.08) 100%);
     }
   }
 }
 
 .bg-green-light {
-  background-color: var(--accent-green-light);
-  color: var(--accent-green);
-  border: 1px solid rgba(52, 211, 153, 0.15);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.04) 0%, rgba(16, 185, 129, 0.07) 100%) !important;
+  color: #065f46 !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
 }
 
 .bg-red-light {
-  background-color: var(--accent-red-light);
-  color: var(--accent-red);
-  border: 1px solid rgba(251, 113, 133, 0.15);
+  background: linear-gradient(135deg, rgba(225, 29, 72, 0.04) 0%, rgba(225, 29, 72, 0.07) 100%) !important;
+  color: #9f1239 !important;
+  border: 1px solid rgba(225, 29, 72, 0.15) !important;
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -65,40 +67,78 @@
 }
 
 .btn-back {
-  font-size: $fs-sm !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(15, 23, 42, 0.06) !important;
+  color: var(--text-muted) !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+  i {
+    font-size: 1.25rem !important;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    background: var(--accent-violet-light) !important;
+    border-color: rgba(79, 70, 229, 0.25) !important;
+    color: var(--accent-violet) !important;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.08);
+    
+    i {
+      transform: translateX(-2px);
+    }
+  }
 }
 
 .detail-subtitle {
   font-size: $fs-sm;
+  color: var(--text-muted);
+  opacity: 0.85;
 }
 
 .detail-status {
   font-size: $fs-xs !important;
   padding: 6px 14px !important;
+  border-radius: 9999px;
+  box-shadow: none !important;
 }
 
 .card-title {
-  font-size: $fs-lg !important;
+  font-size: $fs-md !important;
   font-weight: 700;
+  color: var(--text-main);
   letter-spacing: -0.01em;
+  margin-bottom: 20px !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.04) !important;
+  padding-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .profile-label {
-  font-size: $fs-xs;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: var(--text-muted);
+  color: #94a3b8;
   display: block;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   margin-bottom: 4px;
 }
 
 .profile-value {
-  font-size: $fs-md;
+  font-size: 1.5rem;
   font-weight: 600;
+  color: #1e293b;
   
   &.text-main {
-    color: var(--text-main);
+    color: #1e293b;
   }
   &.text-violet {
     color: var(--accent-violet);
@@ -117,11 +157,11 @@
 }
 
 .table-responsive {
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.02);
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 4px 20px -5px rgba(15, 23, 42, 0.02);
 }
 
 .records-table {
@@ -130,29 +170,30 @@
   border-collapse: collapse;
   
   thead > tr > th {
-    background: rgba(15, 23, 42, 0.03) !important;
-    color: var(--text-main) !important;
+    background: rgba(15, 23, 42, 0.015) !important;
+    color: #64748b !important;
     font-weight: 700;
-    font-size: $fs-xs;
+    font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    padding: 12px 16px;
-    border-bottom: 2px solid var(--border-color);
+    padding: 14px 18px;
+    border-bottom: 2px solid rgba(15, 23, 42, 0.05);
   }
   
   tbody > tr {
     background: transparent;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
     
     &:hover {
-      background: rgba(79, 70, 229, 0.04);
+      background: rgba(79, 70, 229, 0.02);
     }
     
     &> td {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border-color);
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.03);
       font-size: $fs-sm;
-      color: var(--text-main);
+      color: #334155;
+      font-weight: 500;
     }
 
     &:last-child > td {
@@ -162,70 +203,77 @@
 }
 
 .entrance-performance {
-  background: rgba(79, 70, 229, 0.04);
-  border: 1px solid rgba(79, 70, 229, 0.1);
-  border-radius: 12px;
-  padding: 16px !important;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.015) 0%, rgba(79, 70, 229, 0.04) 100%);
+  border: 1px solid rgba(79, 70, 229, 0.06);
+  border-radius: 14px;
+  padding: 18px !important;
 }
 
 .entrance-title {
-  font-size: $fs-sm !important;
+  font-size: 1.25rem !important;
   color: var(--accent-violet);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px !important;
 }
 
 .performance-label {
-  font-size: $fs-xs;
-  color: var(--text-muted);
+  font-size: 1.1rem;
+  color: #94a3b8;
   font-weight: 700;
   display: block;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 2px;
+  letter-spacing: 0.05em;
+  margin-bottom: 3px;
 }
 
 .performance-value {
-  font-size: $fs-sm;
-  color: var(--text-main);
+  font-size: 1.45rem;
+  color: #1e293b;
   font-weight: 600;
 }
 
 .eligible-border {
-  border-color: rgba(16, 185, 129, 0.3) !important;
+  border-color: rgba(16, 185, 129, 0.22) !important;
 }
 
 .not-eligible-border {
-  border-color: rgba(225, 29, 72, 0.3) !important;
+  border-color: rgba(225, 29, 72, 0.22) !important;
 }
 
 .assessment-result-box {
   font-size: $fs-sm;
-  line-height: 1.6;
-  border: 1px solid transparent;
+  line-height: 1.65;
+  padding: 16px 20px !important;
+  border-radius: 14px;
+  font-weight: 500;
   
   .result-label {
     font-size: $fs-sm;
-    font-weight: 700;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-right: 4px;
   }
 }
 
 .guidance-title {
-  font-size: $fs-sm !important;
+  font-size: 1.35rem !important;
   font-weight: 700;
   color: var(--text-main);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .guidance-list {
   font-size: $fs-sm;
-  line-height: 1.6;
+  line-height: 1.65;
   
   li {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    color: #475569;
   }
 }
 
