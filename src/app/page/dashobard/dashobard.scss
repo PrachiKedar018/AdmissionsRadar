@@ -1,17 +1,17 @@
-@import "../../../styles/variables";
+@use "../../../styles/variables" as variable;
 
 .text-violet {
   color: var(--accent-violet);
 }
 
 .user-meta {
-  font-size: $fs-xs;
+  font-size: variable.$fs-xs;
   color: var(--text-muted);
 }
 
 .heading-details {
   h1 {
-    font-size: $fs-xl !important;
+    font-size: variable.$fs-xl !important;
     font-weight: 800 !important;
     letter-spacing: -0.02em;
   }
@@ -22,7 +22,7 @@
   color: var(--text-muted);
   padding: 4px 10px;
   border-radius: 9999px;
-  font-size: $fs-xs;
+  font-size: variable.$fs-xs;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;

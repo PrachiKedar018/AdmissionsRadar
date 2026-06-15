@@ -1,7 +1,7 @@
-@import "../../../../../styles/variables";
+@use "../../../../../styles/variables" as variable;
 
 .section-title {
-  font-size: $fs-sm;
+  font-size: variable.$fs-sm;
   font-weight: 700;
   color: var(--text-main);
   text-transform: uppercase;
@@ -38,7 +38,7 @@
 }
 
 .error-badge {
-  font-size: $fs-xs;
+  font-size: variable.$fs-xs;
   color: var(--accent-red);
   font-weight: 600;
   display: inline-flex;
@@ -63,7 +63,7 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 10px 14px;
-    font-size: $fs-xs;
+    font-size: variable.$fs-xs;
     font-weight: 700;
     color: var(--text-muted);
     display: flex;

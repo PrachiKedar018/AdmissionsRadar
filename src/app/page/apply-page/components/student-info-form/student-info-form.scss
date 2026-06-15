@@ -1,4 +1,4 @@
-@import "../../../../../styles/variables";
+@use "../../../../../styles/variables" as variable;
 
 .required-label::after {
   content: ' *';
@@ -16,7 +16,7 @@
 }
 
 .category-label {
-  font-size: $fs-xs;
+  font-size: variable.$fs-xs;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--accent-violet);
@@ -40,7 +40,7 @@
     padding: 10px 14px !important;
     color: var(--text-main) !important;
     font-family: inherit !important;
-    font-size: $fs-sm !important;
+    font-size: variable.$fs-sm !important;
     font-weight: 500 !important;
   }
 }

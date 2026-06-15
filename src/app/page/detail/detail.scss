@@ -1,5 +1,5 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles/variables' as variable;
+@use '../../../styles/mixins' as mixin;
 
 .luxury-card {
   background: rgba(255, 255, 255, 0.7);
@@ -98,20 +98,20 @@
 }
 
 .detail-subtitle {
-  font-size: $fs-sm;
+  font-size: variable.$fs-sm;
   color: var(--text-muted);
   opacity: 0.85;
 }
 
 .detail-status {
-  font-size: $fs-xs !important;
+  font-size: variable.$fs-xs !important;
   padding: 6px 14px !important;
   border-radius: 9999px;
   box-shadow: none !important;
 }
 
 .card-title {
-  font-size: $fs-md !important;
+  font-size: variable.$fs-md !important;
   font-weight: 700;
   color: var(--text-main);
   letter-spacing: -0.01em;
@@ -146,13 +146,13 @@
 }
 
 .aggregate-label {
-  font-size: $fs-sm;
+  font-size: variable.$fs-sm;
   font-weight: 600;
   color: var(--text-muted);
 }
 
 .aggregate-value {
-  font-size: $fs-lg;
+  font-size: variable.$fs-lg;
   font-weight: 800;
 }
 
@@ -191,7 +191,7 @@
     &> td {
       padding: 14px 18px;
       border-bottom: 1px solid rgba(15, 23, 42, 0.03);
-      font-size: $fs-sm;
+      font-size: variable.$fs-sm;
       color: #334155;
       font-weight: 500;
     }
@@ -243,14 +243,14 @@
 }
 
 .assessment-result-box {
-  font-size: $fs-sm;
+  font-size: variable.$fs-sm;
   line-height: 1.65;
   padding: 16px 20px !important;
   border-radius: 14px;
   font-weight: 500;
   
   .result-label {
-    font-size: $fs-sm;
+    font-size: variable.$fs-sm;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -268,7 +268,7 @@
 }
 
 .guidance-list {
-  font-size: $fs-sm;
+  font-size: variable.$fs-sm;
   line-height: 1.65;
   
   li {
@@ -282,15 +282,15 @@
 }
 
 .error-title {
-  font-size: $fs-xl !important;
+  font-size: variable.$fs-xl !important;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
 .error-msg-detail {
-  font-size: $fs-sm;
+  font-size: variable.$fs-sm;
 }
 
 .loading-text {
-  font-size: $fs-sm;
+  font-size: variable.$fs-sm;
 }

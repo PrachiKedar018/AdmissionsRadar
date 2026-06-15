@@ -1,4 +1,4 @@
-@import "../../../../../styles/variables";
+@use "../../../../../styles/variables" as variable;
 
 .exam-section {
   border-radius: 18px;
@@ -21,7 +21,7 @@
 }
 
 .exam-title {
-  font-size: $fs-sm;
+  font-size: variable.$fs-sm;
   font-weight: 700;
   color: var(--text-main);
   text-transform: uppercase;
@@ -67,7 +67,7 @@
   .p-select-label {
     padding: 10px 14px !important;
     color: var(--text-main) !important;
-    font-size: $fs-sm !important;
+    font-size: variable.$fs-sm !important;
     font-weight: 500 !important;
   }
 }

@@ -4,11 +4,11 @@ import { SelectModule } from 'primeng/select';
 import { AuthService } from '../../../core/auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { UserRole } from '../../../core/model/user.model';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [SelectModule, CommonModule, FormsModule, RouterLink, RouterLinkActive],
+  imports: [SelectModule, CommonModule, FormsModule, RouterLink],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })

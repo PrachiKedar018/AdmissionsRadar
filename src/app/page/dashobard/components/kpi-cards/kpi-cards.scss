@@ -1,8 +1,8 @@
-@import "../../../../../styles/variables";
-@import "../../../../../styles/mixins";
+@use "../../../../../styles/variables" as variable;
+@use "../../../../../styles/mixins" as mixin;
 
 .kpi-card {
-  @include glassmorphism;
+  @include mixin.glassmorphism;
   border-radius: 22px;
   padding: 18.5px 16px;
   transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
@@ -50,7 +50,7 @@
     border: 1px solid var(--accent-amber);
   }
 
-  @include mobile {
+  @include mixin.mobile {
     padding: 12px;
     border-radius: 16px;
 
@@ -117,27 +117,27 @@
 }
 
 .kpi-title {
-  font-size: $fs-xs;
+  font-size: variable.$fs-xs;
   font-weight: 800;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 
-  @include mobile {
+  @include mixin.mobile {
     font-size: 1.1rem;
     letter-spacing: 0.05em;
   }
 }
 
 .kpi-value {
-  font-size: $fs-xxl;
+  font-size: variable.$fs-xxl;
   font-weight: 800;
   color: var(--text-main);
   margin-bottom: 4px;
   line-height: 1;
   letter-spacing: -0.04em;
 
-  @include mobile {
+  @include mixin.mobile {
     font-size: 2.0rem;
   }
 
@@ -175,7 +175,7 @@
   justify-content: center;
   font-size: 1.3rem;
 
-  @include mobile {
+  @include mixin.mobile {
     width: 36px;
     height: 36px;
     border-radius: 8px;
@@ -212,13 +212,13 @@
 }
 
 .kpi-trend {
-  font-size: $fs-xs;
+  font-size: variable.$fs-xs;
   color: var(--accent-green);
   font-weight: 600;
 }
 
 .kpi-sub {
-  font-size: $fs-xs;
+  font-size: variable.$fs-xs;
   color: var(--text-muted);
   font-weight: 500;
 }

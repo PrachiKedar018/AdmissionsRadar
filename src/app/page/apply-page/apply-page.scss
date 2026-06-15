@@ -1,12 +1,12 @@
-@import '../../../styles/mixins';
-@import '../../../styles/variables';
+@use '../../../styles/mixins' as mixin;
+@use '../../../styles/variables' as variable;
 
 .badge-role {
   background: var(--accent-violet-light);
   color: var(--accent-violet);
   padding: 6px 14px;
   border-radius: 9999px;
-  font-size: $fs-xs;
+  font-size: variable.$fs-xs;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -78,7 +78,7 @@
   box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
   animation: modalScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 
-  @include mobile {
+  @include mixin.mobile {
     padding: 20px;
     border-radius: 18px;
   }
@@ -89,6 +89,7 @@
     opacity: 0;
     transform: scale(0.95) translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -98,7 +99,7 @@
 .btn-close-modal {
   background: transparent;
   border: none;
-  font-size: $fs-md;
+  font-size: variable.$fs-md;
   cursor: pointer;
   width: 32px;
   height: 32px;

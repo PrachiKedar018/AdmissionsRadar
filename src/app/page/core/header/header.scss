@@ -1,4 +1,4 @@
-@import "../../../../styles/variables";
+@use "../../../../styles/variables" as variable;
 
 .header {
     background: rgba(255, 255, 255, 0.85);
@@ -31,13 +31,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: $fs-xl;
+        font-size: variable.$fs-xl;
         box-shadow: 0 0 15px rgba(129, 140, 248, 0.3);
         transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .logo-text {
-        font-size: $fs-xl;
+        font-size: variable.$fs-xl;
         font-weight: 800;
         letter-spacing: -0.01em;
         color: var(--text-main);
@@ -46,7 +46,7 @@
     .logo-sub {
         font-weight: 500;
         color: var(--accent-violet);
-        font-size: $fs-xs;
+        font-size: variable.$fs-xs;
         letter-spacing: 0.05em;
         text-transform: uppercase;
     }
@@ -60,7 +60,7 @@
     .nav-link {
         color: var(--text-muted);
         text-decoration: none;
-        font-size: $fs-sm;
+        font-size: variable.$fs-sm;
         font-weight: 600;
         padding: 8px 16px;
         border-radius: 8px;
@@ -70,7 +70,7 @@
         border: 1px solid transparent;
 
         i {
-            font-size: $fs-sm;
+            font-size: variable.$fs-sm;
         }
 
         &:hover {
@@ -102,7 +102,7 @@
     }
 
     .role-label {
-        font-size: $fs-xs;
+        font-size: variable.$fs-xs;
         font-weight: 700;
         color: var(--text-muted);
         text-transform: uppercase;
@@ -116,7 +116,7 @@
     box-shadow: none !important;
 
     .p-select-label {
-        font-size: $fs-sm;
+        font-size: variable.$fs-sm;
         font-weight: 800;
         color: var(--accent-violet) !important;
         text-transform: uppercase;
@@ -134,18 +134,18 @@
 @media (max-width: 575.98px) {
     .brand-logo {
         .logo-mark {
-            font-size: $fs-sm;
+            font-size: variable.$fs-sm;
             padding: 6px 8px;
             border-radius: 6px;
         }
         .logo-text {
-            font-size: $fs-sm;
+            font-size: variable.$fs-sm;
         }
     }
     
     .nav-links {
         .nav-link {
-            font-size: $fs-xs;
+            font-size: variable.$fs-xs;
             padding: 6px 10px;
         }
     }
@@ -154,7 +154,7 @@
         padding: 4px 8px;
         
         ::ng-deep .role-dropdown .p-select-label {
-            font-size: $fs-xs;
+            font-size: variable.$fs-xs;
             padding: 2px 4px !important;
         }
     }
