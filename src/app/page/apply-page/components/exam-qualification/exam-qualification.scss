@@ -1,28 +1,31 @@
 @import "../../../../../styles/variables";
 
 .exam-section {
-  border-radius: 16px;
-  padding: 2rem !important;
+  border-radius: 18px;
+  padding: 24px !important;
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 
   &.jee-theme {
-    background: rgba(245, 158, 11, 0.02);
-    border: 1px solid rgba(245, 158, 11, 0.18);
-    box-shadow: inset 0 0 20px rgba(245, 158, 11, 0.03), 0 4px 25px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.01) 0%, rgba(245, 158, 11, 0.035) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.12);
+    box-shadow: inset 0 0 20px rgba(245, 158, 11, 0.01);
   }
 
   &.neet-theme {
-    background: rgba(52, 211, 153, 0.02);
-    border: 1px solid rgba(52, 211, 153, 0.18);
-    box-shadow: inset 0 0 20px rgba(52, 211, 153, 0.03), 0 4px 25px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.01) 0%, rgba(52, 211, 153, 0.035) 100%);
+    border: 1px solid rgba(52, 211, 153, 0.12);
+    box-shadow: inset 0 0 20px rgba(52, 211, 153, 0.01);
   }
 }
 
 .exam-title {
-  font-size: $fs-md;
+  font-size: $fs-sm;
   font-weight: 700;
   color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 
   .text-amber {
     color: var(--accent-amber);
@@ -42,10 +45,10 @@
   display: block;
   margin-bottom: 6px;
   font-weight: 700;
-  font-size: $fs-xs;
-  color: var(--text-muted);
+  font-size: 1.1rem;
+  color: #94a3b8;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 ::ng-deep .p-select {
@@ -53,6 +56,8 @@
   background: #ffffff !important;
   border: 1px solid var(--border-color) !important;
   border-radius: 10px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.3s ease !important;
 
   &:not(.p-disabled).p-focus {
     border-color: var(--accent-violet) !important;
@@ -63,6 +68,7 @@
     padding: 10px 14px !important;
     color: var(--text-main) !important;
     font-size: $fs-sm !important;
+    font-weight: 500 !important;
   }
 }
 

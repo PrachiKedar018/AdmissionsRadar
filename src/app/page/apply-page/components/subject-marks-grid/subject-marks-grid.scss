@@ -1,37 +1,40 @@
 @import "../../../../../styles/variables";
 
 .section-title {
-  font-size: $fs-md;
+  font-size: $fs-sm;
   font-weight: 700;
   color: var(--text-main);
-  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 15px;
 }
 
 .subject-card {
-  background: rgba(15, 23, 42, 0.02);
-  border: 1px solid var(--border-color);
+  background: rgba(15, 23, 42, 0.01);
+  border: 1px solid rgba(15, 23, 42, 0.05);
   border-radius: 16px;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 16px !important;
   
   &:hover {
-    background: rgba(15, 23, 42, 0.04);
-    border-color: rgba(79, 70, 229, 0.15);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    background: rgba(15, 23, 42, 0.02);
+    border-color: rgba(79, 70, 229, 0.12);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.02);
   }
   
   &:focus-within {
-    background: rgba(15, 23, 42, 0.05);
-    border-color: rgba(129, 140, 248, 0.4) !important;
-    box-shadow: 0 10px 30px rgba(129, 140, 248, 0.08) !important;
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(129, 140, 248, 0.3) !important;
+    box-shadow: 0 8px 25px rgba(129, 140, 248, 0.05) !important;
   }
 }
 
 .subject-index {
-  font-size: $fs-xs;
-  font-weight: 800;
-  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #94a3b8;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
 .error-badge {
@@ -54,14 +57,14 @@
   }
   
   .input-group-addon {
-    background: #ffffff;
+    background: rgba(15, 23, 42, 0.015);
     border: 1px solid var(--border-color);
     border-left: none;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    padding: 0.6rem 0.85rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px 14px;
     font-size: $fs-xs;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-muted);
     display: flex;
     align-items: center;

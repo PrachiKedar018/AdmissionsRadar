@@ -9,10 +9,10 @@
   display: block;
   margin-bottom: 6px;
   font-weight: 700;
-  font-size: $fs-xs;
-  color: var(--text-muted);
+  font-size: 1.1rem;
+  color: #94a3b8;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 .category-label {
@@ -28,6 +28,8 @@
   background: #ffffff !important;
   border: 1px solid var(--border-color) !important;
   border-radius: 10px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.3s ease !important;
   
   &:not(.p-disabled).p-focus {
     border-color: var(--accent-violet) !important;
@@ -39,5 +41,6 @@
     color: var(--text-main) !important;
     font-family: inherit !important;
     font-size: $fs-sm !important;
+    font-weight: 500 !important;
   }
 }
