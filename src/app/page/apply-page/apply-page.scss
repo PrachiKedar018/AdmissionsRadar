@@ -4,11 +4,11 @@
   .badge-role {
     background: var(--accent-violet-light);
     color: var(--accent-violet);
-    padding: 3.5px 7.5px;
+    padding: 4px 10px;
     border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+    font-size: $fs-xs;
+    font-weight: 700;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     border: 1px solid rgba(99, 102, 241, 0.15);
   }
@@ -93,7 +93,7 @@
   .btn-close-modal {
     background: transparent;
     border: none;
-    font-size: 1.25rem;
+    font-size: $fs-md;
     cursor: pointer;
     width: 32px;
     height: 32px;

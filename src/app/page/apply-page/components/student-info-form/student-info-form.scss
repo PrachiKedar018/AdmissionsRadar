@@ -1,39 +1,43 @@
-.required-label::after {
-      content: ' *';
-      color: var(--accent-red);
-    }
-    .form-label {
-      display: block;
-      margin-bottom: 5.5px;
-      font-weight: 600;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
+@import "../../../../../styles/variables";
 
-    .category-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent-violet);
-      font-weight: 700;
-    }
-    ::ng-deep .p-select {
-      width: 100% !important;
-      background: #ffffff !important;
-      border: 1px solid var(--border-color) !important;
-      border-radius: 10px !important;
-      
-      &:not(.p-disabled).p-focus {
-        border-color: var(--accent-violet) !important;
-        box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.18) !important;
-      }
-      
-      .p-select-label {
-        padding: 7.5px 10px !important;
-        color: var(--text-main) !important;
-        font-family: inherit !important;
-        font-size: 0.95rem;
-      }
-    }
+.required-label::after {
+  content: ' *';
+  color: var(--accent-red);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: $fs-xs;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.category-label {
+  font-size: $fs-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-violet);
+  font-weight: 700;
+}
+
+::ng-deep .p-select {
+  width: 100% !important;
+  background: #ffffff !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 10px !important;
+  
+  &:not(.p-disabled).p-focus {
+    border-color: var(--accent-violet) !important;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.18) !important;
+  }
+  
+  .p-select-label {
+    padding: 10px 14px !important;
+    color: var(--text-main) !important;
+    font-family: inherit !important;
+    font-size: $fs-sm !important;
+  }
+}

@@ -1,3 +1,5 @@
+@import "../../../../../styles/variables";
+
 .exam-section {
   border-radius: 16px;
   padding: 2rem !important;
@@ -18,7 +20,7 @@
 }
 
 .exam-title {
-  font-size: 1.1rem;
+  font-size: $fs-md;
   font-weight: 700;
   color: var(--text-main);
 
@@ -38,12 +40,12 @@
 
 .form-label {
   display: block;
-  margin-bottom: 0.55rem;
-  font-weight: 600;
-  font-size: 0.88rem;
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: $fs-xs;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 ::ng-deep .p-select {
@@ -58,9 +60,9 @@
   }
 
   .p-select-label {
-    padding: 0.75rem 1rem !important;
+    padding: 10px 14px !important;
     color: var(--text-main) !important;
-    font-size: 0.95rem;
+    font-size: $fs-sm !important;
   }
 }
 

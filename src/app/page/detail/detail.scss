@@ -65,34 +65,36 @@
 }
 
 .btn-back {
-  font-size: 1.3rem !important;
+  font-size: $fs-sm !important;
 }
 
 .detail-subtitle {
-  font-size: 1.3rem;
+  font-size: $fs-sm;
 }
 
 .detail-status {
-  font-size: 1.4rem !important;
-  padding: 0.6rem 1.4rem !important;
+  font-size: $fs-xs !important;
+  padding: 6px 14px !important;
 }
 
 .card-title {
-  font-size: 1.8rem !important;
+  font-size: $fs-lg !important;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .profile-label {
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: $fs-xs;
+  font-weight: 700;
   color: var(--text-muted);
   display: block;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .profile-value {
-  font-size: 1.6rem;
+  font-size: $fs-md;
   font-weight: 600;
   
   &.text-main {
@@ -104,22 +106,58 @@
 }
 
 .aggregate-label {
-  font-size: 1.3rem;
+  font-size: $fs-sm;
+  font-weight: 600;
+  color: var(--text-muted);
 }
 
 .aggregate-value {
-  font-size: 1.8rem;
+  font-size: $fs-lg;
+  font-weight: 800;
+}
+
+.table-responsive {
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.02);
 }
 
 .records-table {
-  font-size: 1.4rem !important;
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: collapse;
   
-  .table-header-row {
-    border-bottom: 1px solid var(--border-color);
+  thead > tr > th {
+    background: rgba(15, 23, 42, 0.03) !important;
+    color: var(--text-main) !important;
+    font-weight: 700;
+    font-size: $fs-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--border-color);
   }
   
-  .table-body-row {
-    border-bottom: 1px solid rgba(15, 23, 42, 0.02);
+  tbody > tr {
+    background: transparent;
+    transition: all 0.25s ease;
+    
+    &:hover {
+      background: rgba(79, 70, 229, 0.04);
+    }
+    
+    &> td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: $fs-sm;
+      color: var(--text-main);
+    }
+
+    &:last-child > td {
+      border-bottom: none;
+    }
   }
 }
 
@@ -127,26 +165,31 @@
   background: rgba(79, 70, 229, 0.04);
   border: 1px solid rgba(79, 70, 229, 0.1);
   border-radius: 12px;
+  padding: 16px !important;
 }
 
 .entrance-title {
-  font-size: 1.5rem !important;
+  font-size: $fs-sm !important;
   color: var(--accent-violet);
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .performance-label {
-  font-size: 1.1rem;
+  font-size: $fs-xs;
   color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 700;
   display: block;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
 }
 
 .performance-value {
-  font-size: 1.4rem;
+  font-size: $fs-sm;
   color: var(--text-main);
+  font-weight: 600;
 }
 
 .eligible-border {
@@ -158,23 +201,32 @@
 }
 
 .assessment-result-box {
-  font-size: 1.4rem;
+  font-size: $fs-sm;
+  line-height: 1.6;
+  border: 1px solid transparent;
   
   .result-label {
-    font-size: 1.5rem;
+    font-size: $fs-sm;
     font-weight: 700;
   }
 }
 
 .guidance-title {
-  font-size: 1.5rem !important;
+  font-size: $fs-sm !important;
   font-weight: 700;
   color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
 }
 
 .guidance-list {
-  font-size: 1.4rem;
+  font-size: $fs-sm;
   line-height: 1.6;
+  
+  li {
+    margin-bottom: 6px;
+  }
 }
 
 .error-icon {
@@ -182,15 +234,15 @@
 }
 
 .error-title {
-  font-size: 2.2rem !important;
-  font-weight: 700;
+  font-size: $fs-xl !important;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .error-msg-detail {
-  font-size: 1.4rem;
+  font-size: $fs-sm;
 }
 
 .loading-text {
-  font-size: 1.4rem;
+  font-size: $fs-sm;
 }
-

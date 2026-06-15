@@ -23,3 +23,13 @@ $transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
 // Typography
 $font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
+
+// Standard Typography Scale (based on html { font-size: 62.5% }, where 1rem = 10px)
+$fs-xs: 1.2rem;    // 12px (for labels, secondary tags, metadata, badges)
+$fs-sm: 1.4rem;    // 14px (for body text, inputs, form text, table cells)
+$fs-md: 1.6rem;    // 16px (for subtitles, normal button text, key details)
+$fs-lg: 1.8rem;    // 18px (for sub-headings, minor card titles)
+$fs-xl: 2.2rem;    // 22px (for main section headers, page titles)
+$fs-xxl: 2.8rem;   // 28px (for very large KPI stats, modal results)
+$fs-xxxl: 3.6rem;  // 36px (for main hero displays)
+
