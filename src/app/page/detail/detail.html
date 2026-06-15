@@ -144,6 +144,28 @@
         </div>
       </div>
 
+      <div class="row mt-4 animate-fade-in">
+        <div class="col-12">
+          <div class="luxury-card json-card">
+            <div class="d-flex align-items-center justify-content-between cursor-pointer" (click)="toggleJson()" style="user-select: none;">
+              <h3 class="h4 card-title m-0 border-0 pb-0 d-flex align-items-center gap-2" style="font-size: 1.35rem !important;">
+                <i class="pi pi-code text-violet"></i> Raw Application JSON
+              </h3>
+              <button class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-1" style="border-radius: 8px; padding: 6px 12px; font-weight: 600;">
+                <span>{{ showJson() ? 'Hide' : 'Show' }}</span>
+                <i class="pi" [class.pi-chevron-up]="showJson()" [class.pi-chevron-down]="!showJson()"></i>
+              </button>
+            </div>
+            
+            @if (showJson()) {
+              <div class="mt-4 p-4 rounded bg-dark position-relative animate-fade-in" style="border: 1px solid rgba(255, 255, 255, 0.1);">
+                <pre class="m-0 text-white font-monospace" style="font-size: 1.15rem; max-height: 400px; overflow-y: auto; white-space: pre-wrap; word-break: break-all;"><code>{{ app | json }}</code></pre>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
   } @else {

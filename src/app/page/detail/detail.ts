@@ -2,12 +2,12 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EligibilityService } from '../../core/service/eligibility.service';
 import { EligibilityResponse } from '../../core/model/eligibility-response.interface';
-import { DatePipe } from '@angular/common';
+import { DatePipe, JsonPipe } from '@angular/common';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @Component({
   selector: 'app-detail',
-  imports: [DatePipe, ProgressSpinnerModule],
+  imports: [DatePipe, JsonPipe, ProgressSpinnerModule],
   templateUrl: './detail.html',
   styleUrl: './detail.scss',
 })
@@ -19,6 +19,11 @@ export class Detail implements OnInit {
   application = signal<EligibilityResponse | null>(null);
   isLoading = signal(true);
   errorMessage = signal<string | null>(null);
+  showJson = signal(false);
+
+  toggleJson(): void {
+    this.showJson.update(val => !val);
+  }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
