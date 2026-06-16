@@ -1,0 +1,46 @@
+<div class="row g-4 mb-4">
+  <div class="col-12 col-md-6 col-lg-3">
+    <div class="kpi-card total-card text-start animate-fade-in-up">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="kpi-title">Total Applications</span>
+        <div class="kpi-icon total">
+          <i class="pi pi-user" style="font-size: 1.4rem"></i>
+        </div>
+      </div>
+      <h2 class="kpi-value total-text">{{ totalCount }}</h2>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-3">
+    <div class="kpi-card pass-card text-start animate-fade-in-up">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="kpi-title">Eligible Candidates</span>
+        <div class="kpi-icon pass">
+          <i class="pi pi-check" style="font-size: 1.4rem"></i>
+        </div>
+      </div>
+      <h2 class="kpi-value pass-text">{{ eligibleCount }}</h2>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-3">
+    <div class="kpi-card fail-card text-start animate-fade-in-up">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="kpi-title">Not Eligible</span>
+        <div class="kpi-icon fail">
+          <i class="pi pi-times" style="font-size: 1.4rem"></i>
+        </div>
+      </div>
+      <h2 class="kpi-value fail-text">{{ notEligibleCount }}</h2>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-3">
+    <div class="kpi-card avg-card text-start animate-fade-in-up">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="kpi-title">Average Score</span>
+        <div class="kpi-icon avg">
+          <i class="pi pi-percentage" style="font-size: 1.4rem"></i>
+        </div>
+      </div>
+      <h2 class="kpi-value avg-text">{{ avgPercentage }}%</h2>
+    </div>
+  </div>
+</div>

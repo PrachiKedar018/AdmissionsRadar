@@ -1,0 +1,46 @@
+@use "../../../../../styles/variables" as variable;
+
+.required-label::after {
+  content: ' *';
+  color: var(--accent-red);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.category-label {
+  font-size: variable.$fs-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-violet);
+  font-weight: 700;
+}
+
+::ng-deep .p-select {
+  width: 100% !important;
+  background: #ffffff !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.3s ease !important;
+  
+  &:not(.p-disabled).p-focus {
+    border-color: var(--accent-violet) !important;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.18) !important;
+  }
+  
+  .p-select-label {
+    padding: 10px 14px !important;
+    color: var(--text-main) !important;
+    font-family: inherit !important;
+    font-size: variable.$fs-sm !important;
+    font-weight: 500 !important;
+  }
+}

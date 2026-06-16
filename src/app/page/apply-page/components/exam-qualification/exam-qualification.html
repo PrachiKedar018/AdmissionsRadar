@@ -1,0 +1,81 @@
+ @if (requiredExam === 'JEE') {
+      <div [formGroup]="form" class="exam-section jee-theme animate-fade-in p-4 mt-4">
+        <h3 class="exam-title mb-3"><i class="pi pi-verified me-2 text-amber"></i>JEE Main Qualification Details</h3>
+        <p class="text-muted small mb-4">Engineering courses require explicit JEE Main exam status and valid rank.</p>
+        
+        <div formGroupName="jeeQualification" class="row g-4">
+          <div class="col-12 col-md-6">
+            <label for="jeeCleared" class="form-label required-label">JEE Main Cleared?</label>
+            <p-select 
+              [options]="clearedOptions" 
+              formControlName="cleared" 
+              placeholder="Select Status"
+              styleClass="w-100" 
+              id="jeeCleared"
+              [attr.aria-invalid]="form.get('jeeQualification')?.hasError('jeeRequired')"
+              aria-describedby="jee-cleared-error"
+            ></p-select>
+            @if (form.get('jeeQualification')?.touched && form.get('jeeQualification')?.hasError('jeeRequired')) {
+              <small id="jee-cleared-error" class="error-message">You must have cleared JEE and provided a valid positive rank/score.</small>
+            }
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="jeeScore" class="form-label required-label">JEE Rank / Score</label>
+            <input 
+              type="number" 
+              pInputText 
+              id="jeeScore" 
+              formControlName="score" 
+              class="form-control-prime w-100" 
+              placeholder="e.g. 15400"
+              [attr.aria-invalid]="form.get('jeeQualification')?.hasError('jeeRequired')"
+              aria-describedby="jee-score-error"
+            />
+            @if (form.get('jeeQualification')?.touched && form.get('jeeQualification')?.hasError('jeeRequired')) {
+              <small id="jee-score-error" class="error-message">A valid positive rank/score is required.</small>
+            }
+          </div>
+        </div>
+      </div>
+    } @else if (requiredExam === 'NEET') {
+      <div [formGroup]="form" class="exam-section neet-theme animate-fade-in p-4 mt-4">
+        <h3 class="exam-title mb-3"><i class="pi pi-verified me-2 text-green"></i>NEET Qualification Details</h3>
+        <p class="text-muted small mb-4">Medicine courses require explicit NEET exam status and valid score.</p>
+        
+        <div formGroupName="neetQualification" class="row g-4">
+          <div class="col-12 col-md-6">
+            <label for="neetCleared" class="form-label required-label">NEET Qualified?</label>
+            <p-select 
+              [options]="clearedOptions" 
+              formControlName="cleared" 
+              placeholder="Select Status"
+              styleClass="w-100" 
+              id="neetCleared"
+              [attr.aria-invalid]="form.get('neetQualification')?.hasError('neetRequired')"
+              aria-describedby="neet-cleared-error"
+            ></p-select>
+            @if (form.get('neetQualification')?.touched && form.get('neetQualification')?.hasError('neetRequired')) {
+              <small id="neet-cleared-error" class="error-message">You must have cleared NEET and provided a valid positive score.</small>
+            }
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="neetScore" class="form-label required-label">NEET Score (out of 720)</label>
+            <input 
+              type="number" 
+              pInputText 
+              id="neetScore" 
+              formControlName="score" 
+              class="form-control-prime w-100" 
+              placeholder="e.g. 580"
+              [attr.aria-invalid]="form.get('neetQualification')?.hasError('neetRequired')"
+              aria-describedby="neet-score-error"
+            />
+            @if (form.get('neetQualification')?.touched && form.get('neetQualification')?.hasError('neetRequired')) {
+              <small id="neet-score-error" class="error-message">A valid positive score is required.</small>
+            }
+          </div>
+        </div>
+      </div>
+    }

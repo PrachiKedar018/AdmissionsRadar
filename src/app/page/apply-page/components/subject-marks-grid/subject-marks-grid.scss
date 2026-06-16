@@ -1,0 +1,72 @@
+@use "../../../../../styles/variables" as variable;
+
+.section-title {
+  font-size: variable.$fs-sm;
+  font-weight: 700;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 15px;
+}
+
+.subject-card {
+  background: rgba(15, 23, 42, 0.01);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  border-radius: 16px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 16px !important;
+  
+  &:hover {
+    background: rgba(15, 23, 42, 0.02);
+    border-color: rgba(79, 70, 229, 0.12);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.02);
+  }
+  
+  &:focus-within {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(129, 140, 248, 0.3) !important;
+    box-shadow: 0 8px 25px rgba(129, 140, 248, 0.05) !important;
+  }
+}
+
+.subject-index {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.error-badge {
+  font-size: variable.$fs-xs;
+  color: var(--accent-red);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+}
+
+.p-inputgroup {
+  display: flex;
+  align-items: stretch;
+  
+  .form-control-prime {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    flex: 1;
+  }
+  
+  .input-group-addon {
+    background: rgba(15, 23, 42, 0.015);
+    border: 1px solid var(--border-color);
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px 14px;
+    font-size: variable.$fs-xs;
+    font-weight: 700;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+  }
+}

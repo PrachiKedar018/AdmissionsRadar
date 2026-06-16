@@ -1,0 +1,120 @@
+@use '../../../styles/mixins' as mixin;
+@use '../../../styles/variables' as variable;
+
+.badge-role {
+  background: var(--accent-violet-light);
+  color: var(--accent-violet);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: variable.$fs-xs;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  display: inline-flex;
+  align-items: center;
+}
+
+.luxury-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  padding: 30px 24px;
+  margin-bottom: 20px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 40px -10px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(0, 0, 0, 0.01);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1) 50%, rgba(79, 70, 229, 0.05) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: all 0.4s ease;
+  }
+
+  &:hover {
+    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08);
+    border-color: rgba(79, 70, 229, 0.15);
+    transform: translateY(-2px);
+
+    &::after {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(255, 255, 255, 0.1) 50%, rgba(16, 185, 129, 0.08) 100%);
+    }
+  }
+}
+
+.result-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 15px;
+}
+
+.result-modal-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  width: 100%;
+  max-width: 520px;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+  animation: modalScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @include mixin.mobile {
+    padding: 20px;
+    border-radius: 18px;
+  }
+}
+
+@keyframes modalScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.btn-close-modal {
+  background: transparent;
+  border: none;
+  font-size: variable.$fs-md;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(15, 23, 42, 0.05);
+    color: var(--text-main) !important;
+  }
+}
+
+.text-violet {
+  color: var(--accent-violet);
+}

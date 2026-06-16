@@ -1,0 +1,208 @@
+@use "../../../../../styles/variables" as variable;
+
+::ng-deep .custom-table {
+  border: none;
+
+  .p-datatable-thead>tr>th {
+    background: rgba(15, 23, 42, 0.03) !important;
+    color: var(--text-main) !important;
+    font-weight: 700;
+    font-size: variable.$fs-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 11.5px 10px;
+    border-bottom: 2px solid var(--border-color);
+
+    .p-sortable-column-icon {
+      color: var(--text-main);
+      font-size: 0.8rem;
+    }
+
+    &:hover {
+      color: var(--text-main) !important;
+    }
+  }
+
+  .p-datatable-tbody>tr {
+    background: rgba(255, 255, 255, 0.4) !important;
+    color: var(--text-main) !important;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background: rgba(79, 70, 229, 0.04) !important;
+
+      td {
+        border-bottom-color: rgba(79, 70, 229, 0.2) !important;
+        color: var(--text-main) !important;
+      }
+    }
+
+    &>td {
+      padding: 11.5px 10px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: variable.$fs-sm;
+    }
+  }
+}
+
+::ng-deep .p-paginator {
+  background: transparent !important;
+  border: none !important;
+  padding: 12.5px 0 5px 0 !important;
+
+  .p-paginator-page,
+  .p-paginator-next,
+  .p-paginator-last,
+  .p-paginator-first,
+  .p-paginator-prev {
+    border-radius: 8px !important;
+    min-width: 28px !important;
+    height: 28px !important;
+    color: var(--text-muted) !important;
+    font-family: inherit !important;
+    font-size: variable.$fs-xs !important;
+    transition: all 0.2s ease !important;
+
+    &:hover:not(.p-disabled) {
+      background: rgba(15, 23, 42, 0.04) !important;
+      color: var(--text-main) !important;
+    }
+
+    &.p-highlight {
+      background: var(--accent-violet-light) !important;
+      color: var(--accent-violet) !important;
+      font-weight: 700;
+      border: 1px solid rgba(79, 70, 229, 0.2);
+    }
+  }
+}
+
+.table-responsive {
+  border-radius: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.02);
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(79, 70, 229, 0.15);
+    border-radius: 999px;
+    &:hover {
+      background: var(--accent-violet);
+    }
+  }
+}
+
+::ng-deep .custom-table {
+  .p-datatable-thead>tr>th,
+  .p-datatable-tbody>tr>td {
+    white-space: nowrap;
+  }
+}
+
+.table-header-container {
+  width: 100%;
+  
+  .search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      color: var(--text-muted);
+      font-size: variable.$fs-sm;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 14px 10px 40px;
+      font-size: variable.$fs-sm;
+      font-family: inherit;
+      height: 42px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.75);
+      color: var(--text-main);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+      &::placeholder {
+        color: var(--text-muted);
+        opacity: 0.65;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--accent-violet) !important;
+        box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15) !important;
+        background: #ffffff;
+      }
+    }
+  }
+
+  .filter-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    .filter-label {
+      font-size: variable.$fs-xs;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+    
+    .filter-select {
+      padding: 0 35px 0 14px;
+      font-size: variable.$fs-sm;
+      font-family: inherit;
+      height: 42px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.75);
+      color: var(--text-main);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+
+      &:focus {
+        outline: none;
+        border-color: var(--accent-violet) !important;
+        box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15) !important;
+        background: #ffffff;
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .table-header-container {
+    .search-wrapper {
+      max-width: 100% !important;
+    }
+    .filter-wrapper {
+      width: 100%;
+      justify-content: space-between;
+      .filter-select {
+        flex: 1;
+      }
+    }
+  }
+}

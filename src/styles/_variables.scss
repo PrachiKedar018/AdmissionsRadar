@@ -1,0 +1,35 @@
+// Luxury Light Theme Colors
+$bg-primary: var(--bg-primary, #f8fafc);
+$bg-secondary: var(--bg-secondary, #ffffff);
+$surface-card: var(--surface-card, rgba(255, 255, 255, 0.45));
+$border-color: var(--border-color, rgba(15, 23, 42, 0.08));
+$text-main: var(--text-main, #0f172a);
+$text-muted: var(--text-muted, #475569);
+
+// Elegant Accents
+$accent-violet: var(--accent-violet, #4f46e5);
+$accent-violet-hover: var(--accent-violet-hover, #4338ca);
+$accent-violet-light: var(--accent-violet-light, rgba(79, 70, 229, 0.08));
+$accent-green: var(--accent-green, #10b981);
+$accent-green-light: var(--accent-green-light, rgba(16, 185, 129, 0.08));
+$accent-red: var(--accent-red, #e11d48);
+$accent-red-light: var(--accent-red-light, rgba(225, 29, 72, 0.08));
+
+// Borders & Radii
+$border-radius-lg: 20px;
+$border-radius-md: 14px;
+$border-radius-sm: 8px;
+$transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+// Typography
+$font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
+
+// Standard Typography Scale (based on html { font-size: 62.5% }, where 1rem = 10px)
+$fs-xs: 1.2rem;    // 12px (for labels, secondary tags, metadata, badges)
+$fs-sm: 1.4rem;    // 14px (for body text, inputs, form text, table cells)
+$fs-md: 1.6rem;    // 16px (for subtitles, normal button text, key details)
+$fs-lg: 1.8rem;    // 18px (for sub-headings, minor card titles)
+$fs-xl: 2.2rem;    // 22px (for main section headers, page titles)
+$fs-xxl: 2.8rem;   // 28px (for very large KPI stats, modal results)
+$fs-xxxl: 3.6rem;  // 36px (for main hero displays)
+

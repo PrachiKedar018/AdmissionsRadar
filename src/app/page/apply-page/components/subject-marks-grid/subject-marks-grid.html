@@ -1,0 +1,42 @@
+<div [formGroup]="form">
+  <h3 class="section-title mb-3 mt-5">Academic Subjects (Exactly 6 Required)</h3>
+  <p class="text-muted small mb-4">
+    Enter the name and percentage marks obtained for each of the six subjects.
+  </p>
+  <div formArrayName="subjects" class="row row-gap-3">
+    @for (subjectForm of subjectArray.controls; track $index) {
+    <div [formGroupName]="$index" class="col-12 col-md-6">
+      <div class="subject-card p-3">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <span class="subject-index">Subject {{ $index + 1 }}</span>
+        </div>
+        <div class="row g-2">
+          <div class="col-12 col-sm-7">
+            <label [for]="'sub-name-' + $index" class="visually-hidden">Subject Name</label>
+            <input type="text" pInputText [id]="'sub-name-' + $index" formControlName="name" placeholder="Subject Name"
+              class="form-control-prime">
+            @if (subjectForm.get('name')?.touched && subjectForm.get('name')?.hasError('required')) {
+            <span class="error-msg">Name Required</span>
+            }
+          </div>
+          <div class="col-12 col-sm-5">
+            <label [for]="'sub-marks-' + $index" class="visually-hidden">Marks</label>
+            <input type="number" pInputText [id]="'sub-marks-' + $index" formControlName="marks"
+              class="form-control-prime w-100 text-end" placeholder="Marks" min="0" max="100"
+              class="form-control-prime">
+            @if (subjectForm.get('marks')?.touched && subjectForm.get('marks')?.invalid) {
+            @if (subjectForm.get('marks')?.hasError('required')) {
+            <span class="error-msg">Required 0 to 100</span>
+            }
+            @else {
+            <span class="error-msg">0 to 100</span>
+            }
+            }
+          </div>
+        </div>
+      </div>
+
+    </div>
+    }
+  </div>
+</div>
